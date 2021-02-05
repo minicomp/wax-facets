@@ -8,6 +8,20 @@
 
     {%- if titles_size > 0 -%}
       <nav class="site-nav">
+
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{{ site.baseurl }}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ '/about/' | relative_url }}">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+        </ul>
+
+
 <!--         <input type="checkbox" id="nav-trigger" class="nav-trigger" />
         <label for="nav-trigger">
           <span class="menu-icon">
@@ -17,14 +31,14 @@
           </span>
         </label> -->
 
-        <div class="trigger">
+        <!--div class="trigger">
           {%- for path in page_paths -%}
             {%- assign my_page = site.pages | where: "path", path | first -%}
             {%- if my_page.title -%}
             <a class="page-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
             {%- endif -%}
           {%- endfor -%}
-        </div>
+        </div-->
       </nav>
     {%- endif -%}
   </div>
