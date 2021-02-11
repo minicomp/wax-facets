@@ -1,6 +1,40 @@
 ---
 # Only the main Sass file needs front matter (the dashes are enough)
+sitemap: false
 ---
+
+/* open-sans-300 - latin */
+@font-face {
+  font-family: 'Open Sans Light';
+  font-style: normal;
+  font-weight: 300;
+  src: url('{{site.baseurl}}/assets/fonts/OpenSans/open-sans-v18-latin-300.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('{{site.baseurl}}/assets/fonts/OpenSans/open-sans-v18-latin-300.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('{{site.baseurl}}/assets/fonts/OpenSans/open-sans-v18-latin-300.woff2') format('woff2'), /* Super Modern Browsers */
+       url('{{site.baseurl}}/assets/fonts/OpenSans/open-sans-v18-latin-300.woff') format('woff'), /* Modern Browsers */
+       url('{{site.baseurl}}/assets/fonts/OpenSans/open-sans-v18-latin-300.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('{{site.baseurl}}/assets/fonts/OpenSans/open-sans-v18-latin-300.svg#OpenSans') format('svg'); /* Legacy iOS */
+}
+/* open-sans-regular - latin */
+@font-face {
+  font-family: 'Open Sans Regular';
+  font-style: normal;
+  font-weight: 400;
+  src: url('{{site.baseurl}}/assets/fonts/OpenSans/open-sans-v18-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('{{site.baseurl}}/assets/fonts/OpenSans/open-sans-v18-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('{{site.baseurl}}/assets/fonts/OpenSans/open-sans-v18-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('{{site.baseurl}}/assets/fonts/OpenSans/open-sans-v18-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('{{site.baseurl}}/assets/fonts/OpenSans/open-sans-v18-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('{{site.baseurl}}/assets/fonts/OpenSans/open-sans-v18-latin-regular.svg#OpenSans') format('svg'); /* Legacy iOS */
+}
+
+/* text */
+
+$body-font:       'Open Sans Regular', 'Verdana', 'sans-serif';
+$heading-font:    'Open Sans Light', 'Verdana', 'sans-serif';
+
 
 @import
 	"facets";
