@@ -12,6 +12,14 @@ body {
   font-family: $body-font;
 }
 
+main {
+	padding: 2rem;
+}
+
+.title {
+	padding-top: 0;
+}
+
 // RESET
 
 // html, body, div, span, applet, object, iframe,

@@ -1,14 +1,30 @@
 <header class="site-header">
 
   <div class="wrapper">
-    {%- assign default_paths = site.pages | map: "path" -%}
-    {%- assign page_paths = site.header_pages | default: default_paths -%}
-    {%- assign titles_size = site.pages | map: 'title' | join: '' | size -%}
-    <a class="title" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
-    <span class="subtitle">{{ site.subtitle | escape }}</span>
 
-    {%- if titles_size > 0 -%}
-      <nav class="site-nav">
+
+   
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+
+
+    <a class="title navbar-brand" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
+    <span class="subtitle navbar-text">{{ site.subtitle | escape }}</span>
+
+
+       <ul class="navbar-nav ml-auto">
+           <li class="nav-item">
+               <a class="nav-link" href="home">Home</a>
+           </li>
+           <li class="nav-item">
+               <a class="nav-link" href="about">About</a>
+           </li>
+           <li class="nav-item">
+               <a class="nav-link" href="contact">Contact us</a>
+           </li>
+       </ul>
+      </nav>  
+
+      <!-- <nav class="">
 
         <ul class="nav">
           <li class="nav-item">
@@ -21,6 +37,8 @@
             <a class="nav-link" href="#">Link</a>
           </li>
         </ul>
+       </nav> -->
+
 
 
 <!--         <input type="checkbox" id="nav-trigger" class="nav-trigger" />
@@ -40,7 +58,6 @@
             {%- endif -%}
           {%- endfor -%}
         </div-->
-      </nav>
-    {%- endif -%}
+
   </div>
 </header>
