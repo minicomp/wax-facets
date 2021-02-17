@@ -12,4 +12,4 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse porttitor e
 
 Ut eu orci sit amet est semper dapibus in vel ex. In hac habitasse platea dictumst. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam eget euismod leo. Aenean vehicula pretium tortor sed viverra. Nunc egestas lectus at mauris consectetur pulvinar. Donec faucibus mauris a metus tincidunt, ut accumsan nulla vestibulum. Etiam condimentum sed orci ut mollis. Mauris vestibulum massa quis massa tempor, a volutpat est consectetur. Nullam facilisis, arcu nec bibendum fermentum, nisl ante imperdiet risus, sit amet rutrum mi ipsum et mauris. Cras ex libero, tincidunt vestibulum iaculis rutrum, consectetur quis arcu. In est lectus, elementum non imperdiet a, hendrerit in odio. Maecenas nisi justo, congue feugiat risus at, tincidunt lobortis lacus. Nullam ut sollicitudin nunc, a pharetra magna.
 
-<div class="text-center"><a class="btn btn-primary" href="#" role="button">Link</a></div>
+<div class="text-center"><a class="action-button btn" href="#" role="button">Link</a></div>
