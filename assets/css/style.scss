@@ -35,6 +35,14 @@ sitemap: false
 $body-font:       'Open Sans Regular', 'Verdana', 'sans-serif';
 $heading-font:    'Open Sans Light', 'Verdana', 'sans-serif';
 
+/* Colors */
+
+$dark-background:#440027;
+$light-text:#D49A6A;
+$light-link:#FFD1AA;
+$light-link-hover:#CD88AF;
+$medium-background:#801515;
+
 
 @import
 	"facets";

@@ -21,24 +21,24 @@ main {
 }
 
 .banner {
-	background-color: #440027;
-	color: #D49A6A;
+	background-color: $dark-background;
+	color: $light-text;
 }
 
-a {
-	color: #FFD1AA;
+.banner a {
+	color: $light-link;
 }
 
-a:hover {
-  color: #CD88AF;
+.banner a:hover {
+  color: $light-link-hover;
 }
 
 a.action-button {
-	background-color: #801515;
-	color: #D49A6A;
+	background-color: $medium-background;
+	color: $light-text;
 }
 
 a.action-button:hover  {
-  background-color: #440027;
-  color: #CD88AF;
+  background-color: $dark-background;
+  color: $light-link-hover;
 }
