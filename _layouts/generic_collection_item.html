@@ -6,7 +6,7 @@ layout: default
   The block below controls the image viewer
 {% endcomment %}
 
-<h3 alt="{{ page.label }}" class='item-label'>{{ page.label }}</h3>
+<h1 alt="{{ page.label }}" class='item-label'>{{ page.label }}</h1>
 
 {% if page.image_viewer %}
   {% assign viewer = page.image_viewer %}
@@ -15,15 +15,21 @@ layout: default
 {% endif %}
 
 {% if viewer %}
-  <div class='item-view'>
-    <span class='pagination-link' id='prevlink'></span>
-    {% if viewer == 'openseadragon' %}
-      {% include osd_iiif_image_viewer.html manifest=page.manifest prevlink=prevlink nextlink=nextlink %}
-    {% else %}
-       {% include simple_image_viewer.html full_image=page.full prevlink=prevlink nextlink=nextlink %}
-    {% endif %}
-    <span class='pagination-link' id='nextlink'></span>
-  </div>
+    <div class="row">
+      <div class="pagination mx-auto">
+        <div class='pagination-link' id='prevlink'></div>
+        <div class='pagination-link' id='nextlink'></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class='item-view'>
+        {% if viewer == 'openseadragon' %}
+          {% include osd_iiif_image_viewer.html manifest=page.manifest prevlink=prevlink nextlink=nextlink %}
+        {% else %}
+           {% include simple_image_viewer.html full_image=page.full prevlink=prevlink nextlink=nextlink %}
+        {% endif %}
+      </div>
+    </div>
   {% unless layout.pagination == false %}{% include item_pagination.html %}{% endunless %}
 {% endif %}
 

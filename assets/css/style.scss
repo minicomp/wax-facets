@@ -43,6 +43,11 @@ $light-link:#FFD1AA;
 $light-link-hover:#CD88AF;
 $medium-background:#801515;
 
+/* Viewer proportions */
+
+$viewer-height: 100%;
+$max-width: 100%;
+
 
 @import
 	"facets";
