@@ -6,8 +6,6 @@ layout: default
   The block below controls the image viewer
 {% endcomment %}
 
-<h1 alt="{{ page.label }}" class='item-label'>{{ page.label }}</h1>
-
 {% if page.image_viewer %}
   {% assign viewer = page.image_viewer %}
 {% elsif layout.image_viewer %}
@@ -20,6 +18,9 @@ layout: default
         <div class='pagination-link' id='prevlink'></div>
         <div class='pagination-link' id='nextlink'></div>
       </div>
+    </div>
+    <div class="row">
+      <h1 alt="{{ page.label }}" class='item-label'>{{ page.label }}</h1>
     </div>
     <div class="row">
       <div class='item-view'>
