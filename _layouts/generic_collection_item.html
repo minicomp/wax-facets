@@ -23,7 +23,7 @@ layout: default
       <h1 alt="{{ page.label }}" class='item-label'>{{ page.label }}</h1>
     </div>
     <div class="row">
-      <div class='item-view'>
+      <div class='item-view w-100' >
         {% if viewer == 'openseadragon' %}
           {% include osd_iiif_image_viewer.html manifest=page.manifest prevlink=prevlink nextlink=nextlink %}
         {% else %}
