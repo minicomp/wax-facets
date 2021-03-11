@@ -1,5 +1,9 @@
 {% assign collection = site[include.collection] %}
 
+{% if include.num_column %}
+  {% assign min_column_width = 12 | divided_by: include.num_column %}
+{% endif %}
+
 {% if include.only and include.facet_by %}
   {% assign subset = collection | where: include.facet_by, include.only | sort: 'order' %}
 {% endif %}
@@ -7,7 +11,40 @@
 <div id='wax-gallery-{{ include.collection }}-container' class='wax-gallery-container full-width'>
   <div class='wax-inline-container'>
     <div id="{{ include.collection }}-facet-buttons" class="facet-buttons"></div>
-    <div id="wax-gallery-{{ include.collection }}" class="wax-gallery"></div>
+    <div id="wax-gallery-{{ include.collection }}" class="wax-gallery">
+      <div class="row">
+      {% if subset %}
+        {% for item in subset %}
+          <div class='gallery-item {{ item[include.facet_by] | slugify }} all img-responsive col-xl-{{min_column_width}}'>
+            <a href='{{ item.url | absolute_url }}'>
+            <div class='hovereffect' style="height: 200px;">
+              <img class='img-responsive gallery-thumb' src='{{ item.thumbnail | absolute_url }}' alt="{{ item.label }}"/>
+              <div class='overlay'>
+                <p class='info'>{{ item.label }}</p>
+              </div>
+            </div>
+          </a>
+        </div>
+        {% endfor %}
+      {% else %}
+      {% comment %}
+        start here; fix max-width on images, then fix duplication of code with subset
+      {% endcomment %}
+        {% for item in collection %}
+            <div class='gallery-item {{ item[include.facet_by] | slugify }} all img-responsive col-xl-{{min_column_width}}' style="height: 200px;">
+              <a href='{{ item.url | absolute_url }}'>
+                <div class='hovereffect'>
+                  <img class='img-fluid img-thumbnail gallery-thumb' src='{{ item.thumbnail | absolute_url }}' alt="{{ item.label }}" style="max-height: 100%; display: inline-block;"/>
+                  <div class='overlay'>
+                    <p class='info'>{{ item.label }}</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+        {% endfor %}
+      {% endif %}
+      </div>
+    </div>
   </div>
 </div>
 
@@ -17,22 +54,6 @@
     var container = $('#wax-gallery-{{ include.collection }}-container');
     var gallery = $('#wax-gallery-{{ include.collection }}');
     var buttonDiv = $('#{{ include.collection }}-facet-buttons');
-
-    {% if subset %}
-      {% for item in subset %}
-        {%- capture item_html -%}
-          "<div class='gallery-item {{ item[include.facet_by] | slugify }} all'><a href='{{ item.url | absolute_url }}'><div class='hovereffect'><img class='img-responsive gallery-thumb' src='{{ item.thumbnail | absolute_url }}'/><div class='overlay'><p class='info'>{{ item.label }}</p></div></div></a></div>"
-        {%- endcapture -%}
-        gallery.append({{ item_html | strip_newlines }});
-      {% endfor %}
-    {% else %}
-      {% for item in collection %}
-        {%- capture item_html -%}
-          "<div class='gallery-item {{ item[include.facet_by] | slugify }} all'><a href='{{ item.url | absolute_url }}'><div class='hovereffect'><img class='img-responsive gallery-thumb' src='{{ item.thumbnail | absolute_url }}' alt='{{ item.label }}'/><div class='overlay'><p class='info'>{{ item.label }}</p></div></div></a></div>"
-        {%- endcapture -%}
-        gallery.append({{ item_html | strip_newlines }});
-      {% endfor %}
-    {% endif %}
 
     {% if include.facet_by %}
       {% unless subset %}
