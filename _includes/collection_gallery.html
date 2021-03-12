@@ -34,7 +34,7 @@
             <div class='gallery-item {{ item[include.facet_by] | slugify }} all img-responsive col-xl-{{min_column_width}}' style="height: 200px;">
               <a class="d-block h-100" href='{{ item.url | absolute_url }}'>
                 <div class='hovereffect h-100'>
-                  <img class='img-fluid img-thumbnail gallery-thumb w-auto mh-100' src='{{ item.thumbnail | absolute_url }}' alt="{{ item.label }}"/>
+                  <img class='img-fluid img-thumbnail gallery-thumb w-100 mh-100' src='{{ item.thumbnail | absolute_url }}' alt="{{ item.label }}"/>
                   <div class='overlay'>
                     <p class='info'>{{ item.label }}</p>
                   </div>

@@ -74,6 +74,12 @@ item pages (iiif + metadata)
   height:   80vh;
   background-color: $light-background;
 }
+
+.gallery-thumb {
+  height: 25vw;
+  object-fit: cover;
+  object-position: 50% 0%;
+}
 /*
 .item-view {
   width:           110%;
