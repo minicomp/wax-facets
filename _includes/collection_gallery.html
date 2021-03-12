@@ -14,15 +14,15 @@
     <div id="wax-gallery-{{ include.collection }}" class="wax-gallery">
       <div class="row text-center">
         {% for item in collection %}
-            <div class='gallery-item {{ item[include.facet_by] | slugify }} all img-responsive col-xl-{{min_column_width}}' style="height: 200px;">
-              <a class="d-block h-100" href='{{ item.url | absolute_url }}'>
-                <div class='hovereffect h-100'>
-                  <img class='img-fluid img-thumbnail gallery-thumb w-100 mh-100' src='{{ item.thumbnail | absolute_url }}' alt="{{ item.label }}"/>
-                  <div class='overlay'>
-                    <p class='info'>{{ item.label }}</p>
-                  </div>
-                </div>
-              </a>
+            <div class='card gallery-item {{ item[include.facet_by] | slugify }} all img-responsive col-xl-{{min_column_width}}'>
+              <img class='d-block card-img-top img-fluid img-thumbnail gallery-thumb w-100 mh-100' src='{{ item.thumbnail | absolute_url }}' alt="{{ item.label }}"/>
+              <div class="card-body">
+                <!--a class="d-block h-100" href='{{ item.url | absolute_url }}'-->
+                <h5 class="card-title">{{ item.label }}</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="{{ item.url | absolute_url }}" class="btn btn-primary">Go somewhere</a>
+              </div>
+
             </div>
         {% endfor %}
       </div>
