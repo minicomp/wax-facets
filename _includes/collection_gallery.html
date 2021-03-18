@@ -1,7 +1,8 @@
 {% assign collection = site[include.collection] %}
 
-{% assign col_metadata = site.collections | where: 'label', include.collection | first %}
-{% assign the_collection = col_metadata.docs %}
+{% if include.only %}
+  {% assign collection = collection | where: include.only | sort: 'order' %}
+{% endif %}
 
 {% if include.num_column %}
   {% assign min_column_width = 12 | divided_by: include.num_column %}
@@ -13,7 +14,7 @@
 
 {% for item in facet_list %}
   <p>{{item}}</p>
-  {% assign options = the_collection | map: facet | compact | uniq | sort_natural %}
+  {% assign options = collection | map: item | compact | uniq | sort_natural %}
   <ul>
   {% for option in options %}
     <li>{{option}}</li>
@@ -21,9 +22,6 @@
   </ul>
 {% endfor %}
 
-{% if include.only and include.facet_by %}
-  {% assign collection = collection | where: include.facet_by, include.only | sort: 'order' %}
-{% endif %}
 
 <div id='wax-gallery-{{ include.collection }}-container' class='wax-gallery-container full-width'>
   <div class='wax-inline-container'>
