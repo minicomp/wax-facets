@@ -80,43 +80,16 @@ item pages (iiif + metadata)
   object-fit: cover;
   object-position: 50% 0%;
 }
-/*
-.item-view {
-  width:           110%;
-  display:         inline-flex;
-  flex-wrap:       nowrap;
-  justify-content: space-between;
-  align-items:     center;
-  margin-left:     -5%;
 
-  .image-viewer {
-    position: relative;
-    text-align: center;
-    height:   100%;
-    max-height: 80vh;
-    background-color: $medium-background;
-    width:    100%;
-    border:   1px solid $medium-background;
-    margin:   0;
-
-    a {
-      color: inherit !important;
-    }
-
-    li {
-      font-size: 1em !important;
-    }
-
-    .item-full-image {
-      max-width: $max-width;
-      height: $viewer-height;
-    }
-  }
-
-
+.card-title {
+  font-size: 1.2rem;
 }
 
-*/
+p.card-text {
+  color: $dark-text;
+}
+
+
 .metadata-block {
   font-family: $body-font;
   max-width: 100%;
