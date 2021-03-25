@@ -11,8 +11,8 @@ sitemap: false
   src: url('{{ "/assets/fonts/OpenSans/open-sans-v18-latin-300.eot" | absolute_url }}'); /* IE9 Compat Modes */
   src: local(''),
        // url('{{ "/assets/fonts/OpenSans/open-sans-v18-latin-300.eot?#iefix" | absolute_url }}') format('embedded-opentype" | absolute_url }}'), /* IE6-IE8 */
-       url('{{ "/assets/fonts/OpenSans/open-sans-v18-latin-300.woff2" | absolute_url }}') format('woff2" | absolute_url }}'), /* Super Modern Browsers */
-       // url('{{ "/assets/fonts/OpenSans/open-sans-v18-latin-300.woff" | absolute_url }}') format('woff" | absolute_url }}'), /* Modern Browsers */
+       url('{{ "/assets/fonts/OpenSans/open-sans-v18-latin-300.woff2" | absolute_url }}') format('woff2'), /* Super Modern Browsers */
+       url('{{ "/assets/fonts/OpenSans/open-sans-v18-latin-300.woff" | absolute_url }}') format('woff'), /* Modern Browsers */
        // url('{{ "/assets/fonts/OpenSans/open-sans-v18-latin-300.ttf" | absolute_url }}') format('truetype" | absolute_url }}'), /* Safari, Android, iOS */
        // url('{{ "/assets/fonts/OpenSans/open-sans-v18-latin-300.svg#OpenSans" | absolute_url }}') format('svg" | absolute_url }}'); /* Legacy iOS */
 }
@@ -24,8 +24,8 @@ sitemap: false
   src: url('{{ "/assets/fonts/OpenSans/open-sans-v18-latin-regular.eot" | absolute_url }}'); /* IE9 Compat Modes */
   src: local(''),
        // url('{{ "/assets/fonts/OpenSans/open-sans-v18-latin-regular.eot?#iefix" | absolute_url }}') format('embedded-opentype" | absolute_url }}'), /* IE6-IE8 */
-       url('{{ "/assets/fonts/OpenSans/open-sans-v18-latin-regular.woff2" | absolute_url }}') format('woff2" | absolute_url }}'), /* Super Modern Browsers */
-       // url('{{ "/assets/fonts/OpenSans/open-sans-v18-latin-regular.woff" | absolute_url }}') format('woff" | absolute_url }}'), /* Modern Browsers */
+       url('{{ "/assets/fonts/OpenSans/open-sans-v18-latin-regular.woff2" | absolute_url }}') format('woff2'), /* Super Modern Browsers */ 
+       url('{{ "/assets/fonts/OpenSans/open-sans-v18-latin-regular.woff" | absolute_url }}') format('woff'), /* Modern Browsers */ 
        // url('{{ "/assets/fonts/OpenSans/open-sans-v18-latin-regular.ttf" | absolute_url }}') format('truetype" | absolute_url }}'), /* Safari, Android, iOS */
        // url('{{ "/assets/fonts/OpenSans/open-sans-v18-latin-regular.svg#OpenSans" | absolute_url }}') format('svg" | absolute_url }}'); /* Legacy iOS */
 }
