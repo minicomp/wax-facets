@@ -14,30 +14,32 @@
 
 {% for item in facet_list %}
 
-<p>
+<div class="row">
+  <p>
 <!--   <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
     Link with href
   </a> -->
-  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#{{item | slugify }}-collapse" aria-expanded="false" aria-controls="{{item | slugify }}-collapse">
-    {{item}}
-  </button>
-    {% assign options = collection | map: item | compact | uniq | sort_natural %}
-</p>
-<div class="collapse" id="{{item | slugify }}-collapse">
-  <div class="card card-body">
-    <ul>
-    {% for option in options %}
-      <li>{{option}} <span class="oi oi-chevron-bottom" aria-hidden="true"></span></li>
-    {% endfor %}
-    </ul>
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#{{item | slugify }}-collapse" aria-expanded="false" aria-controls="{{item | slugify }}-collapse">
+      {{item}} <span class="oi oi-chevron-bottom" aria-hidden="true"></span>
+    </button>
+      {% assign options = collection | map: item | compact | uniq | sort_natural %}
+  </p>
+  <div class="collapse" id="{{item | slugify }}-collapse">
+    <div class="card card-body">
+      <ul>
+      {% for option in options %}
+        <li>{{option}} </li>
+      {% endfor %}
+      </ul>
+    </div>
   </div>
-</div>
-{% endfor %}
+  {% endfor %}
 
+</div>
 
 <div id='wax-gallery-{{ include.collection }}-container' class='wax-gallery-container full-width'>
   <div class='wax-inline-container'>
-    <div id="{{ include.collection }}-facet-buttons" class="facet-buttons"></div>
+<!--     <div id="{{ include.collection }}-facet-buttons" class="facet-buttons"></div> -->
     <div id="wax-gallery-{{ include.collection }}" class="wax-gallery">
       <div class="row">
         {% for item in collection %}
