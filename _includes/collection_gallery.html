@@ -10,13 +10,13 @@
 
 {% if include.facet_by %}
   {% assign facet_list = include.facet_by | split: "|" %}
-{% endif %}
+
 
 <div class="row">
   {% for item in facet_list %}
-  <div class="card">
+  <div class="card m-1">
     <div class="card-header">
-    <a class="" data-toggle="collapse" href="#{{item | slugify }}-collapse" role="button" aria-expanded="false" aria-controls="{{item | slugify }}-collapse">
+    <a class="facet-bn" data-toggle="collapse" href="#{{item | slugify }}-collapse" role="button" aria-expanded="false" aria-controls="{{item | slugify }}-collapse">
         {{item}} <span class="oi oi-chevron-bottom" aria-hidden="true"></span>
     </a>
 <!--       <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#{{item | slugify }}-collapse" aria-expanded="false" aria-controls="{{item | slugify }}-collapse">
@@ -36,6 +36,8 @@
   </div>
   {% endfor %}
 </div>
+
+{% endif %}
 
 <div id='wax-gallery-{{ include.collection }}-container' class='wax-gallery-container full-width'>
   <div class='wax-inline-container'>
@@ -67,18 +69,19 @@
   $( document ).ready(function() {
     var container = $('#wax-gallery-{{ include.collection }}-container');
     var gallery = $('#wax-gallery-{{ include.collection }}');
-    var buttonDiv = $('#{{ include.collection }}-facet-buttons');
+    // var buttonDiv = $('#{{ include.collection }}-facet-buttons');
 
     {% if include.facet_by %}
       {% unless subset %}
         var facets = Array.from(new Set([{%- for item in collection -%}'{{ item[include.facet_by] | slugify }}'{% unless forloop.last %}, {% endunless %}{%- endfor -%}]));
-        buttonDiv.append("<button class='btn facet active' data-filter='all'>show all</button>");
+        // buttonDiv.append("<button class='btn facet active' data-filter='all'>show all</button>");
 
-        for (i in facets) {
-          buttonDiv.append(`<button class='btn facet' data-filter='${facets[i]}'>${facets[i]}</button>`);
-        }
+        // for (i in facets) {
+        //   buttonDiv.append(`<button class='btn facet' data-filter='${facets[i]}'>${facets[i]}</button>`);
+        // }
 
         $(document).ready(function(){
+          // $('[aria-expanded=false]').parent().parent().css("border","0px");
           $(".facet").click(function(){
             var filterValue = $(this).attr('data-filter');
             $('.facet').removeClass('active');
@@ -86,6 +89,11 @@
             if(filterValue == 'all') { $('.all').show('slow'); }
             else { $('.all').hide('slow'); $(`.${filterValue}`).show('slow'); }
           });
+        });
+        $('.facet-bn[aria-expanded]').click(function(event){
+          if (event.target.getAttribute('aria-expanded') == true) {
+            $(this).parent().parent().css("border","4px solid rgba(0, 0, 0, 0.125)")
+          }
         });
       {% endunless %}
     {% endif %}
