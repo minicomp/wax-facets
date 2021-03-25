@@ -17,7 +17,8 @@
   {% assign options = collection | map: item | compact | uniq | sort_natural %}
   <ul>
   {% for option in options %}
-    <li>{{option}}</li>
+    <li>{{option}} <span class="oi oi-chevron-bottom" aria-hidden="true"></span>
+</li>
   {% endfor %}
   </ul>
 {% endfor %}
