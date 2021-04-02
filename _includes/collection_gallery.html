@@ -14,8 +14,8 @@
 
 <div class="row">
   {% for item in facet_list %}
-  <div class="card m-1">
-    <div class="card-header">
+  <div class="card m-1 facet-card">
+    <div class="card-header facet-header">
     <a class="facet-bn" data-toggle="collapse" href="#{{item | slugify }}-collapse" role="button" aria-expanded="false" aria-controls="{{item | slugify }}-collapse">
         {{item}} <span class="oi oi-chevron-bottom float-right block ml-2" aria-hidden="true"></span>
     </a>
@@ -48,7 +48,7 @@
           <!--a href="{{ item.url | absolute_url }}" class="btn btn-primary"-->
           <div class="gallery-item {{ item[include.facet_by] | slugify }} all col-xl-{{min_column_width}} p-1">
             <a href="{{ item.url | absolute_url }}">
-            <div class='card'>
+            <div class='card thumbnail-card'>
               <img class='d-block card-img-top gallery-thumb w-100 mh-100' src='{{ item.thumbnail | absolute_url }}' alt="{{ item.label }}"/>
               <div class="card-body">
                 <h3 class="card-title">{{ item.label }}</h3>
