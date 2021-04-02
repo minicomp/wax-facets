@@ -97,3 +97,15 @@ p.card-text {
   border-radius: 3px;
   padding: 1rem;
 }
+
+.card {
+  border: 0px;
+}
+
+.card-header {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.active {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}

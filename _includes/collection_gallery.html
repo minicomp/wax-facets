@@ -32,7 +32,7 @@
         {% endfor %}
         </ul>
       </div>
-    </div> 
+    </div>
   </div>
   {% endfor %}
 </div>
@@ -90,10 +90,9 @@
             else { $('.all').hide('slow'); $(`.${filterValue}`).show('slow'); }
           });
         });
+
         $('.facet-bn[aria-expanded]').click(function(event){
-          if (event.target.getAttribute('aria-expanded') == true) {
-            $(this).parent().parent().css("border","4px solid rgba(0, 0, 0, 0.125)")
-          }
+          $(this).parent().parent().toggleClass("active");
         });
       {% endunless %}
     {% endif %}
