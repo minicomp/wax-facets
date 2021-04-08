@@ -2,13 +2,14 @@
 
 let facets = {
 
-}
+};
 
-let setIds = $('#fieldset').attr('id')
+
+var setIds = $('fieldset').attr('id');
 
 let numberFacets = setIds.length;
 
-var = i;
+var i;
 
 for (i = 0; i < numberFacets; i++) {
 	facets[setIds[i]] = new Array();
@@ -18,18 +19,22 @@ for (i = 0; i < numberFacets; i++) {
 
 
 $('#facets :checkbox').change(function() {
+	let setId = $(this).attr('class') + "-set";
+	console.log(setId);
+
     // this will contain a reference to the checkbox   
     if (this.checked) {
         console.log("yay");
-        
+
+
     } else {
         console.log("boo")
     }
 });
 
 
-$( document ).ready(function() {
+// $( document ).ready(function() {
 
 
 
-}
+// }
