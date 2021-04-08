@@ -14,7 +14,7 @@
 
 <form class="row" id="facets">
   {% for item in facet_list %}
-  <fieldset class="card m-1 facet-card">
+  <fieldset id="{{item | slugify}}-set" class="card m-1 facet-card">
     <div class="card-header facet-header">
     <a class="facet-bn" data-toggle="collapse" href="#{{item | slugify }}-collapse" role="button" aria-expanded="false" aria-controls="{{item | slugify }}-collapse"><legend>
         {{item | replace: "_", " "}}</legend><span class="oi oi-chevron-bottom float-right block ml-2" aria-hidden="true"></span>
@@ -29,8 +29,8 @@
 
 
         {% for option in options %}
-          <div class="facet-item">
-            <input type="checkbox" name="{{option}}" value="{{option}}">
+          <div class="facet-item"> 
+            <input id="{{option | slugify}}" class="{{item | slugify}}" type="checkbox" name="{{option}}" value="{{option}}">
             <label for="{{option}}">{{option}}</label>
           </div>
         {% endfor %}
