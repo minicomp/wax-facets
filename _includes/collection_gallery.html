@@ -24,15 +24,20 @@
       </button> -->
         {% assign options = collection | map: item | compact | uniq | sort_natural %}
     </div>
-    <div class="collapse" id="{{item | slugify }}-collapse">
-      <div class="card-body">
-        <ul>
+    <form class="collapse" id="{{item | slugify }}-collapse">
+      <fieldset class="card-body">
+
+
         {% for option in options %}
-          <li>{{option}} </li>
+          <div class="facet-item">
+            <input type="checkbox" name="{{option}}" value="{{option}}">
+            <label for="{{option}}">{{option}}</label>
+          </div>
         {% endfor %}
-        </ul>
-      </div>
-    </div>
+
+
+      </fieldset>
+    </form>
   </div>
   {% endfor %}
 </div>
