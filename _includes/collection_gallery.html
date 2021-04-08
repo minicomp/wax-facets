@@ -12,7 +12,7 @@
   {% assign facet_list = include.facet_by | split: "|" %}
 
 
-<form class="row">
+<form class="row" id="facets">
   {% for item in facet_list %}
   <fieldset class="card m-1 facet-card">
     <div class="card-header facet-header">
