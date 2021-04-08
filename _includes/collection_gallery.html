@@ -12,20 +12,20 @@
   {% assign facet_list = include.facet_by | split: "|" %}
 
 
-<div class="row">
+<form class="row">
   {% for item in facet_list %}
-  <div class="card m-1 facet-card">
+  <fieldset class="card m-1 facet-card">
     <div class="card-header facet-header">
     <a class="facet-bn" data-toggle="collapse" href="#{{item | slugify }}-collapse" role="button" aria-expanded="false" aria-controls="{{item | slugify }}-collapse">
-        {{item}} <span class="oi oi-chevron-bottom float-right block ml-2" aria-hidden="true"></span>
+        {{item | replace: "_", " "}} <span class="oi oi-chevron-bottom float-right block ml-2" aria-hidden="true"></span>
     </a>
 <!--       <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#{{item | slugify }}-collapse" aria-expanded="false" aria-controls="{{item | slugify }}-collapse">
         {{item}} <span class="oi oi-chevron-bottom" aria-hidden="true"></span>
       </button> -->
         {% assign options = collection | map: item | compact | uniq | sort_natural %}
     </div>
-    <form class="collapse" id="{{item | slugify }}-collapse">
-      <fieldset class="card-body">
+    <div class="collapse" id="{{item | slugify }}-collapse">
+      <div class="card-body">
 
 
         {% for option in options %}
@@ -36,11 +36,11 @@
         {% endfor %}
 
 
-      </fieldset>
-    </form>
-  </div>
+      </div>
+    </div>
+  </fieldset>
   {% endfor %}
-</div>
+</form>
 
 {% endif %}
 
