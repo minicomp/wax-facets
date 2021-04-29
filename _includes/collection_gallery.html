@@ -101,7 +101,7 @@
         $('.facet-bn[aria-expanded]').click(function(event){
           $(this).parent().parent().toggleClass("active");
           // this selector might return multiple elements
-          $(this).children('.oi').toggleClass("oi-chevron-bottom oi-chevron-top");
+          $(this).children('legend').children('.oi').toggleClass("oi-chevron-bottom oi-chevron-top");
         });
       {% endunless %}
     {% endif %}
