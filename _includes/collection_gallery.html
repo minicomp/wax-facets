@@ -80,7 +80,7 @@
 
     {% if include.facet_by %}
       {% unless subset %}
-        var facets = Array.from(new Set([{%- for item in collection -%}'{{ item[include.facet_by] | slugify }}'{% unless forloop.last %}, {% endunless %}{%- endfor -%}]));
+        //var facets = Array.from(new Set([{%- for item in collection -%}'{{ item[include.facet_by] | slugify }}'{% unless forloop.last %}, {% endunless %}{%- endfor -%}]));
         // buttonDiv.append("<button class='btn facet active' data-filter='all'>show all</button>");
 
         // for (i in facets) {
@@ -88,6 +88,9 @@
         // }
 
         $(document).ready(function(){
+
+          console.log({{ facet_list | jsonify }}) // liquid array of one or more fields for facetting
+          
           // $('[aria-expanded=false]').parent().parent().css("border","0px");
           $(".facet").click(function(){
             var filterValue = $(this).attr('data-filter');
