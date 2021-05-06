@@ -1,32 +1,38 @@
 // Facet input
 
-let facets = {
+var facets = {
 
 }
 
-let setIds = $.each( $('fieldset'), function( key, value ) {
-  value.id
+var setIds = [];
+
+$('fieldset').each( function(i,e) { 
+    setIds.push(e.id);
 });
 
 
-let numberFacets = setIds.length;
+var numberFacets = setIds.length;
 
 var i;
 
 for (i = 0; i < numberFacets; i++) {
 	facets[setIds[i]] = new Array();
+    // console.log(facets[setIds[i]])
 }
-
-
 
 
 $('#facets :checkbox').change(function() {
     // this will contain a reference to the checkbox
 
-		// FILL IN THE LOGIC TO STORE THE CHECKBOXES
+    var pinClass = this.className + '-set';
+    console.log(pinClass);
+    var pinId = this.id;
+    console.log(pinId);
 		
     if (this.checked) {
-        console.log("yay");
+      facets[pinClass].push(pinId);
+      console.log(facets[pinClass]);
+
 
     } else {
         console.log("boo")
