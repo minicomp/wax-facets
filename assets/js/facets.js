@@ -28,6 +28,11 @@ $('#facets :checkbox').change(function() {
     console.log(pinClass);
     var pinId = this.id;
     console.log(pinId);
+
+    // CREATE A NEW FUNCTION THAT GETS CALLED THAT IS GOING 
+    // TO REPOPULATE THE GALLERY. FIRST HIDE EVERYTHING WITH
+    // A CLASS OF GALLERY ITEMS. THEN WE NEED TO SHOW ONLY ITEMS
+    // THAT MATCH CHECKBOXES. WE START WITH FULL ONE.
 		
     if (this.checked) {
       facets[pinClass].push(pinId);
