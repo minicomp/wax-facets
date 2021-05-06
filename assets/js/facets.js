@@ -35,7 +35,10 @@ $('#facets :checkbox').change(function() {
 
 
     } else {
-        console.log("boo")
+      facets[pinClass] = facets[pinClass].filter(function(value, index, arr){ 
+      return value != pinId ;
+      });
+      console.log(facets[pinClass]);
     }
 });
 
