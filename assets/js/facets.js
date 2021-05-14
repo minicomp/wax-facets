@@ -6,7 +6,7 @@ var facets = {
 
 var setIds = [];
 
-$('fieldset').each( function(i,e) { 
+$('fieldset').each( function(i,e) {
     setIds.push(e.id);
 });
 
@@ -29,29 +29,41 @@ $('#facets :checkbox').change(function() {
     var pinId = this.id;
     console.log(pinId);
 
-    // CREATE A NEW FUNCTION THAT GETS CALLED THAT IS GOING 
-    // TO REPOPULATE THE GALLERY. FIRST HIDE EVERYTHING WITH
-    // A CLASS OF GALLERY ITEMS. THEN WE NEED TO SHOW ONLY ITEMS
-    // THAT MATCH CHECKBOXES. WE START WITH FULL ONE.
-		
     if (this.checked) {
       facets[pinClass].push(pinId);
       console.log(facets[pinClass]);
-
-
     } else {
-      facets[pinClass] = facets[pinClass].filter(function(value, index, arr){ 
+      facets[pinClass] = facets[pinClass].filter(function(value, index, arr){
       return value != pinId ;
       });
       console.log(facets[pinClass]);
     }
+    refreshGallery();
 });
 
+function refreshGallery() {
+  var listOfElements = $('.gallery-item');
+
+  listOfElements.hide();
+
+  for (i = 0; i < numberFacets; i++) {
+    var inputIds = [];
+  	if (facets[setIds[i]].length == 0) {
+      $(`#${setIds[i]} input`).each( function(i,e) {
+          inputIds.push("." + e.id);
+      });
+    }
+    else {
+      inputIds = facets[setIds[i]].map(function(el) {
+        return '.' + el;
+      });
+    }
+    listOfClasses = inputIds.join(",");
+    listOfElements = listOfElements.filter($(`${listOfClasses}`));
+  }
+  listOfElements.show();
+}
 
 $( document ).ready(function() {
-
-
-
-
 }
 );
