@@ -25,18 +25,18 @@ $('#facets :checkbox').change(function() {
     // this will contain a reference to the checkbox
 
     var pinClass = this.className + '-set';
-    console.log(pinClass);
+    //console.log(pinClass);
     var pinId = this.id;
-    console.log(pinId);
+    //console.log(pinId);
 
     if (this.checked) {
       facets[pinClass].push(pinId);
-      console.log(facets[pinClass]);
+      //console.log(facets[pinClass]);
     } else {
       facets[pinClass] = facets[pinClass].filter(function(value, index, arr){
       return value != pinId ;
       });
-      console.log(facets[pinClass]);
+      //console.log(facets[pinClass]);
     }
     refreshGallery();
 });
@@ -44,7 +44,7 @@ $('#facets :checkbox').change(function() {
 function refreshGallery() {
   var listOfElements = $('.gallery-item');
 
-  listOfElements.hide();
+  listOfElements.hide('slow');
 
   for (i = 0; i < numberFacets; i++) {
     var inputIds = [];
@@ -61,7 +61,7 @@ function refreshGallery() {
     listOfClasses = inputIds.join(",");
     listOfElements = listOfElements.filter($(`${listOfClasses}`));
   }
-  listOfElements.show();
+  listOfElements.show('slow');
 }
 
 $( document ).ready(function() {
