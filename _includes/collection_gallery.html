@@ -63,16 +63,16 @@
           {% endfor %}
           <!--a href="{{ item.url | absolute_url }}" class="btn btn-primary"-->
           <div class="gallery-item {{  newClasses | join: ' ' }} col-xl-{{min_column_width}} p-1">
-            <a href="{{ item.url | absolute_url }}">
+            
             <div class='card thumbnail-card'>
               <img class='d-block card-img-top gallery-thumb w-100 mh-100' src='{{ item.thumbnail | absolute_url }}' alt="{{ item.label }}"/>
               <div class="card-body">
-                <h3 class="card-title">{{ item.label }}</h3>
+                <a href="{{ item.url | absolute_url }}"><h3 class="card-title">{{ item.label }}</h3></a>
                 <p class="card-text small">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 <!--a href="{{ item.url | absolute_url }}" class="btn btn-primary">Read more</a-->
               </div>
             </div>
-          </a>
+          
           </div>
         {% endfor %}
       </div>
