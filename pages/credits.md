@@ -4,7 +4,7 @@ title: Credits
 permalink: /credits/
 ---
 
-*Facets* is the team work of Angela Zoss and Alex Gil. During the lockdown, they met religiously two hours every week. They still have not met in real life. 
+*Facets* is the team work of Angela Zoss and Alex Gil. During the lockdown, they met religiously for two hours every week. They still have not met in real life. 
 
 *Facets* builds on the work of Marii Nyrop, and the cheerful encouragement of the Wax community which gathers on a channel on the Code4Lib Slack.
 
@@ -20,7 +20,7 @@ source development projects, including [FOLIO](https://github.com/folio-org/) an
 
 ## Alex Gil
 
-Alex Gil is the Digital Scholarship Librarian at Columbia University, where he collaborates with faculty, students and library colleagues in humanities research, pedagogy and knowledge production that involves the use of advanced computation, digital media design, and network technologies. He is the lead coordinator for the [Butler Library Studio](https://studio.cul.columbia.edu/) at Columbia University Libraries, a tech-light library space focused on digital scholarship and pedagogy, and now a broadcast, [Studio Remote](https://www.twitch.tv/culstudio). Gil is co-founder and moderator of Columbia’s [Group for Experimental Methods in the Humanities](http://xpmethod.columbia.edu/), a trans-disciplinary research cluster focused on experimental humanities; co-creator and co-editor of [archipelagos journal](http://archipelagosjournal.org/): a journal of Caribbean digital praxis, and co-wrangler of its sister conference series, [The Caribbean Digital](http://caribbeandigitalnyc.net/).
+Alex Gil is the Digital Scholarship Librarian at Columbia University, where he collaborates with faculty, students and library colleagues in humanities research, pedagogy and knowledge production that involves the use of advanced computation, digital media design, and network technologies. He is the lead coordinator for the [Butler Library Studio](https://studio.cul.columbia.edu/) at Columbia University Libraries, [Studio Remote](https://www.twitch.tv/culstudio), and Columbia’s [Group for Experimental Methods in the Humanities](http://xpmethod.columbia.edu/).
 
 ## Wax 
 

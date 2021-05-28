@@ -4,12 +4,39 @@ title: About
 permalink: /about/
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Risus sed vulputate odio ut enim blandit volutpat maecenas. Feugiat nisl pretium fusce id velit ut tortor pretium viverra. Convallis posuere morbi leo urna molestie at. Suspendisse interdum consectetur libero id faucibus. Urna cursus eget nunc scelerisque. Tincidunt eget nullam non nisi est sit amet facilisis. Urna neque viverra justo nec. Sollicitudin tempor id eu nisl nunc mi ipsum. Volutpat commodo sed egestas egestas. Sem nulla pharetra diam sit amet nisl suscipit. Auctor augue mauris augue neque. Scelerisque purus semper eget duis at tellus. Vulputate eu scelerisque felis imperdiet proin fermentum.
+*Facets* is a theme for Wax sites that allows users to browse through a collection using facets, or filters. Often enough, when we are browsing through a collection of cultural artifacts we want to reduce the number of objects in front of us to a small collection that fits a very specific criteria. Faceted browsing is a form of browsing that allow you to do just that using filters you select. In *Facets* this can be achieved using drop-down menus where you can select the categories you want to browse by.
 
-Accumsan sit amet nulla facilisi morbi tempus. Semper feugiat nibh sed pulvinar proin gravida. Pretium aenean pharetra magna ac placerat. Eget arcu dictum varius duis at consectetur lorem donec massa. In metus vulputate eu scelerisque felis. Semper risus in hendrerit gravida rutrum quisque. Lobortis elementum nibh tellus molestie nunc. Laoreet non curabitur gravida arcu ac tortor dignissim. Urna et pharetra pharetra massa massa ultricies. Vivamus arcu felis bibendum ut tristique et egestas. Ultrices eros in cursus turpis.
+Besides the ability to do faceted browsing, *Facets* also allows creators to extract any subcollection that can be filtered by category and use it on any page of the site. We hope this will be useful in the creation of exhibits that focus on selections.
 
-Sagittis vitae et leo duis ut. Enim lobortis scelerisque fermentum dui faucibus. Sed nisi lacus sed viverra. Vehicula ipsum a arcu cursus vitae congue mauris rhoncus aenean. Enim sit amet venenatis urna. Eleifend quam adipiscing vitae proin. Mi quis hendrerit dolor magna eget est lorem ipsum dolor. Nisl purus in mollis nunc. Et malesuada fames ac turpis egestas sed tempus urna et. Varius duis at consectetur lorem. Massa tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada. Massa tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin.
+[Wax](https://minicomp.github.io/wax/) is a minimal computing toolkit for the creation of digital collections and exhibits. Wax depends on Jekyll, the static site generator. 
 
-In cursus turpis massa tincidunt dui. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Semper quis lectus nulla at volutpat diam. In vitae turpis massa sed elementum tempus egestas sed sed. Molestie a iaculis at erat pellentesque adipiscing. Faucibus in ornare quam viverra orci. Lectus urna duis convallis convallis. At quis risus sed vulputate odio ut enim. Orci porta non pulvinar neque laoreet suspendisse interdum consectetur. In iaculis nunc sed augue lacus viverra vitae congue eu. Sed risus ultricies tristique nulla aliquet enim tortor at auctor. Tristique magna sit amet purus gravida quis blandit turpis cursus. Sed odio morbi quis commodo. Donec adipiscing tristique risus nec. Ut pharetra sit amet aliquam id diam. Purus sit amet volutpat consequat mauris nunc congue. Facilisis magna etiam tempor orci eu. Molestie at elementum eu facilisis sed odio morbi quis commodo. Tristique senectus et netus et malesuada fames ac.
+## How to use Wax
 
-Quisque non tellus orci ac auctor. Enim nulla aliquet porttitor lacus. Orci nulla pellentesque dignissim enim sit amet venenatis urna cursus. Tempus iaculis urna id volutpat lacus laoreet non curabitur. Nisl vel pretium lectus quam id. Integer malesuada nunc vel risus commodo viverra maecenas accumsan. A scelerisque purus semper eget duis. Viverra nam libero justo laoreet sit amet cursus sit. Leo in vitae turpis massa sed elementum tempus egestas sed. In tellus integer feugiat scelerisque varius morbi enim nunc. Vivamus arcu felis bibendum ut tristique et egestas quis ipsum. Urna condimentum mattis pellentesque id nibh tortor. Amet cursus sit amet dictum sit. Ante metus dictum at tempor commodo ullamcorper a lacus. In ornare quam viverra orci sagittis. Proin fermentum leo vel orci porta non pulvinar neque laoreet. Adipiscing commodo elit at imperdiet dui accumsan sit amet nulla. Nunc lobortis mattis aliquam faucibus purus in massa. Maecenas volutpat blandit aliquam etiam.
+To learn more about setting up Wax visit [our documentation wiki](https://minicomp.github.io/wiki/wax/).
+
+## How to define facets
+
+As other Wax sites, *Facets* depends on the metadata you create. Let's assume you are using a CSV to record data for your collection. In order for *Facets* to work, that CSV must have separate columns for each large category you want to filter by, or *facet headers*. These become the drop-down menus above the gallery. Each of these columns then accepts a small range of sub-categories, or *facet values*. These are the check boxes.
+
+
+<img src="{{site.baseurl}}/assets/figures/fig1.png" height="100%" width="100%" alt="Figure 1. Illustration of Facet Headers and Facet Values"/>
+
+
+
+The collection_gallery include requires a "collection" variable and has the following option variables: "only", "facet_by", and "num_column"
+
+It can be added to a page using code like this:
+
+{% raw %}
+  {% include collection_gallery.html collection='qatar'
+      facet_by='object_type|location' num_column=4 %}
+{% endraw %}
+
+If a field name is passed to the include variable "only", the collection
+will be filtered to items that have a truthy value for that field name. (See  https://shopify.github.io/liquid/filters/where/).
+
+For the "facet_by" include variable, specify one or more field names in a
+pipe-separated list.For the "num_column" include variable, specify a number that is a divisor of 12 (i.e, 1, 2, 3, 4, or 6). The default is 2 columns.
+
+
+
