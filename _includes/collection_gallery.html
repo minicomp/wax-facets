@@ -1,3 +1,25 @@
+{% comment %}
+
+  The collection_gallery include requires a "collection" variable and has the
+  following option variables: "only", "facet_by", and "num_column"
+
+  It can be added to a page using code like this:
+
+  {% include collection_gallery.html collection='qatar'
+      facet_by='object_type|location' num_column=4 %}
+
+  If a field name is passed to the include variable "only", the collection
+  will be filtered to items that have a truthy value for that field name.
+  (See  https://shopify.github.io/liquid/filters/where/)
+
+  For the "facet_by" include variable, specify one or more field names in a
+  pipe-separated list.
+
+  For the "num_column" include variable, specify a number that is a divisor of
+  12 (i.e, 1, 2, 3, 4, or 6). The default is 2 columns.
+
+{% endcomment %}
+
 {% assign collection = site[include.collection] %}
 
 {% if include.only %}
@@ -6,40 +28,42 @@
 
 {% if include.num_column %}
   {% assign min_column_width = 12 | divided_by: include.num_column %}
+{% elsif %}
+  {% assign min_column_width = 6 %}
 {% endif %}
 
 {% if include.facet_by %}
   {% assign facet_list = include.facet_by | split: "|" %}
 
 
-<form class="row" id="facets">
-  {% for item in facet_list %}
-  <fieldset id="{{item | slugify}}-set" class="card m-1 facet-card">
-    <div class="card-header facet-header">
-    <a class="facet-bn" data-toggle="collapse" href="#{{item | slugify }}-collapse" role="button" aria-expanded="false" aria-controls="{{item | slugify }}-collapse">
-      <legend>{{item | replace: "_", " "}}
-        <span class="oi oi-chevron-bottom float-right ml-2" aria-hidden="true"></span>
-      </legend>
-    </a>
-        {% assign options = collection | map: item | compact | uniq | sort_natural %}
-    </div>
-    <div class="collapse" id="{{item | slugify }}-collapse">
-      <div class="card-body">
-
-
-        {% for option in options %}
-          <div class="facet-item">
-            <input id="{{option | slugify}}" class="{{item | slugify}}" type="checkbox" name="{{option}}" value="{{option}}">
-            <label for="{{option}}">{{option}}</label>
-          </div>
-        {% endfor %}
-
-
+  <form class="row" id="facets">
+    {% for item in facet_list %}
+    <fieldset id="{{item | slugify}}-set" class="card m-1 facet-card">
+      <div class="card-header facet-header">
+      <a class="facet-bn" data-toggle="collapse" href="#{{item | slugify }}-collapse" role="button" aria-expanded="false" aria-controls="{{item | slugify }}-collapse">
+        <legend>{{item | replace: "_", " "}}
+          <span class="oi oi-chevron-bottom float-right ml-2" aria-hidden="true"></span>
+        </legend>
+      </a>
+          {% assign options = collection | map: item | compact | uniq | sort_natural %}
       </div>
-    </div>
-  </fieldset>
-  {% endfor %}
-</form>
+      <div class="collapse" id="{{item | slugify }}-collapse">
+        <div class="card-body">
+
+
+          {% for option in options %}
+            <div class="facet-item">
+              <input id="{{option | slugify}}" class="{{item | slugify}}" type="checkbox" name="{{option}}" value="{{option}}">
+              <label for="{{option}}">{{option}}</label>
+            </div>
+          {% endfor %}
+
+
+        </div>
+      </div>
+    </fieldset>
+    {% endfor %}
+  </form>
 
 {% endif %}
 
@@ -53,10 +77,12 @@
       <div class="row">
         {% for item in collection %}
         {% assign newClasses = '' | split: ' ' %}
+        {% if facet_list %}
           {% for fieldSet in facet_list %}
           {% assign fieldSetArray = item[fieldSet] | slugify | split: ' '  %}
           {% assign newClasses = newClasses | concat: fieldSetArray %}
           {% endfor %}
+        {% endif %}
           <div class="gallery-item {{  newClasses | join: ' ' }} col-xl-{{min_column_width}} p-1">
 
             <div class='card thumbnail-card'>
