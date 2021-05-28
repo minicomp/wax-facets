@@ -28,13 +28,19 @@
 
 {% if include.num_column %}
   {% assign min_column_width = 12 | divided_by: include.num_column %}
-{% elsif %}
+{% else %}
   {% assign min_column_width = 6 %}
 {% endif %}
 
 {% if include.facet_by %}
-  {% assign facet_list = include.facet_by | split: "|" %}
 
+<!--
+  If there are one or more facet_by field names, build a form at the top of the
+  page where each variable gets a set of checkboxes corresponding to
+  all of the possible values of that field.
+-->
+
+  {% assign facet_list = include.facet_by | split: "|" %}
 
   <form class="row" id="facets">
     {% for item in facet_list %}
@@ -50,14 +56,12 @@
       <div class="collapse" id="{{item | slugify }}-collapse">
         <div class="card-body">
 
-
           {% for option in options %}
             <div class="facet-item">
               <input id="{{option | slugify}}" class="{{item | slugify}}" type="checkbox" name="{{option}}" value="{{option}}">
               <label for="{{option}}">{{option}}</label>
             </div>
           {% endfor %}
-
 
         </div>
       </div>
@@ -67,9 +71,12 @@
 
 {% endif %}
 
-<!-- CODE FOR ASSIGNING FACETS -->
-
-
+<!--
+  Build the gallery by iterating through items in the collection. If there are
+  facets specified, fine the items' values for those fields and add them as
+  classes to the gallery-item object. The classes are used by JavaScript
+  that reacts to changes to the checkbox filters.
+-->
 
 <div id='wax-gallery-{{ include.collection }}-container' class='wax-gallery-container full-width'>
   <div class='wax-inline-container'>
@@ -89,10 +96,11 @@
               <img class='d-block card-img-top gallery-thumb w-100 mh-100' src='{{ item.thumbnail | absolute_url }}' alt="{{ item.label }}"/>
               <div class="card-body">
                 <a href="{{ item.url | absolute_url }}"><h3 class="card-title">{{ item.label }}</h3></a>
+                <!-- remove default text below or replace with a description from
+                the item record (e.g., {{item.description}}) -->
                 <p class="card-text small">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
               </div>
             </div>
-
           </div>
         {% endfor %}
       </div>
@@ -100,30 +108,22 @@
   </div>
 </div>
 
-
 <script type="text/javascript">
   $( document ).ready(function() {
-    var container = $('#wax-gallery-{{ include.collection }}-container');
-    var gallery = $('#wax-gallery-{{ include.collection }}');
 
     {% if include.facet_by %}
         $(document).ready(function(){
 
           console.log({{ facet_list | jsonify }}) // liquid array of one or more fields for facetting
 
-          $(".facet").click(function(){
-            var filterValue = $(this).attr('data-filter');
-            $('.facet').removeClass('active');
-            $(this).addClass('active');
-            if(filterValue == 'all') { $('.all').show('slow'); }
-            else { $('.all').hide('slow'); $(`.${filterValue}`).show('slow'); }
+          // This JavaScript controls the expanding and contracting facet headers.
+          // Additional JS for this page in assets/js/facets.js
+          $('.facet-bn[aria-expanded]').click(function(event){
+            $(this).parent().parent().toggleClass("active");
+            // this selector might return multiple elements
+            $(this).children('legend').children('.oi').toggleClass("oi-chevron-bottom oi-chevron-top");
           });
-        });
 
-        $('.facet-bn[aria-expanded]').click(function(event){
-          $(this).parent().parent().toggleClass("active");
-          // this selector might return multiple elements
-          $(this).children('legend').children('.oi').toggleClass("oi-chevron-bottom oi-chevron-top");
         });
     {% endif %}
   });
