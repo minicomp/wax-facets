@@ -10,20 +10,20 @@ To learn more about setting up and using Wax visit [the Wax wiki](https://minico
 
 ## ... how to define facets
 
-As other Wax sites, *Facets* depends on the metadata you create. Let's assume you are using a CSV to record data for your collection. In order for *Facets* to work, that CSV must have separate columns for each large category you want to filter by, or *facet headers*. These become the drop-down menus above the gallery. Each of these columns then accepts a small range of sub-categories, or *facet values*. These are the check boxes.
+As other Wax sites, *Facets* depends on the metadata you create. Let's assume you are using a CSV to record data for your collection. In order for *Facets* to work, that CSV must have designated columns for each large category you want to "facet" by. These become the *facet headers* at the top of the drop-down menus above the gallery. Each of these columns then accepts a small range of sub-categories, or *facet values*. These become the check boxes.
 
-
+<br>
 <img src="{{site.baseurl}}/assets/figures/fig1.png" height="100%" width="100%" alt="Figure 1. Illustration of Facet Headers and Facet Values"/>
+<br>
+<br>
 
-The collection_gallery include requires a "`collection`" variable and has the following option variables: "`only`", "`facet_by`", and "`num_column`". It can be added to a page by inserting the following snippet where you want it to appear, and replacing the sample values with your own:
+We tell *Facets* what collection gallery to insert and what columns to facet by with a Jekyll `include` command that brings in the `collection_gallery` at the desired place on the page. This `include` snippet requires a `collection` variable, but can  take three other optional variables to help you refine the results further: `only`, `facet_by`, and `num_column`. This theme already comes with the following example in the [Browse](/browse/) page. In order to use it, just replace the sample values with your own when editing the page:
 
 <code>{% raw %}
   {% include collection_gallery.html collection='qatar'
       facet_by='object_type|location' num_column=4 %}
 {% endraw %}</code>
 
-If a field name is passed to the include variable "`only`", the collection
-will be filtered to items that have a truthy value for that field name. (See  https://shopify.github.io/liquid/filters/where/).
+If a field name is passed to the "`only`" variable, the collection will be filtered to items that have [a truthy value](https://shopify.github.io/liquid/filters/where/) for that field name.
 
-For the "facet_by" include variable, specify one or more field names in a
-pipe-separated list.For the "num_column" include variable, specify a number that is a divisor of 12 (i.e, 1, 2, 3, 4, or 6). The default is 2 columns.
+For the "`facet_by`" include variable, specify one or more field names in a pipe-separated list.For the "num_column" include variable, specify a number that is a divisor of 12 (i.e, 1, 2, 3, 4, or 6). The default is 2 columns.
