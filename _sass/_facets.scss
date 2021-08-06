@@ -119,3 +119,31 @@ legend {
   display: inline;
 }
 
+// Sticky footer
+
+* {
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+#wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  /* margin: 0 auto -6vh; */
+}
+
+footer {
+  height: 10vh;
+  padding: .5rem;
+}
+
+
+main {
+    min-height: calc(100vh - 120px);
+}
+
+// End sticky footer
