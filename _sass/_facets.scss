@@ -71,8 +71,10 @@ item pages (iiif + metadata)
 }
 
 .image-viewer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height:   80vh;
-  background-color: $light-background;
 }
 
 .gallery-thumb {
@@ -93,8 +95,6 @@ p.card-text {
 .metadata-block {
   font-family: $body-font;
   max-width: 100%;
-  border: $medium-background 1px solid;
-  border-radius: 3px;
   padding: 1rem;
 }
 
@@ -118,4 +118,3 @@ legend {
   font-size: 1rem;
   display: inline;
 }
-
