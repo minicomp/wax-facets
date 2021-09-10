@@ -12,6 +12,6 @@ Odio ut enim blandit volutpat. Odio euismod lacinia at quis risus sed vulputate 
 
 ## Subset Collection
 
-In this example we use only the object type "portrait":
+Facilisi etiam dignissim diam quis enim lobortis scelerisque fermentum. Lobortis feugiat vivamus at augue eget arcu. In hac habitasse platea dictumst vestibulum rhoncus est pellentesque. 
 
 {% include collection_gallery.html collection='qatar' facet_by='object_type' only='portrait' num_column=4 %}
