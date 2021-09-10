@@ -13,20 +13,20 @@ body {
 }
 
 main {
-	padding: 2rem;
+  padding: 2rem;
 }
 
 .subtitle {
-	padding-bottom: 0.3125rem;
+  padding-bottom: 0.3125rem;
 }
 
 .banner {
-	background-color: $dark-background;
-	color: $light-text;
+  background-color: $dark-background;
+  color: $light-text;
 }
 
 .banner a {
-	color: $light-link;
+  color: $light-link;
 }
 
 .banner a:hover {
@@ -34,8 +34,8 @@ main {
 }
 
 a.action-button {
-	background-color: $medium-background;
-	color: $light-text;
+  background-color: $medium-background;
+  color: $light-text;
 }
 
 a.action-button:hover  {
@@ -43,7 +43,7 @@ a.action-button:hover  {
   color: $light-link-hover;
 }
 
-a {
+a, a.dropdown-item {
   color: $medium-background;
   &:hover{
     color: $dark-background;

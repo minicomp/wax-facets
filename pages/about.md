@@ -4,39 +4,35 @@ title: About
 permalink: /about/
 ---
 
-*Facets* is a theme for Wax sites that allows users to browse through a collection using facets, or filters. Often enough, when we are browsing through a collection of cultural artifacts we want to reduce the number of objects in front of us to a small collection that fits a very specific criteria. Faceted browsing is a form of browsing that allow you to do just that using filters you select. In *Facets* this can be achieved using drop-down menus where you can select the categories you want to browse by.
+*Facets* is a theme for Wax sites that allows users to browse through a collection using facets, or filters. When we are browsing through a collection of cultural artifacts, we often want to reduce the number of objects in front of us to a small collection that fits a very specific criteria. Faceted browsing is a form of browsing that allows you to do just that using filters you select. In *Facets* this can be achieved using drop-down menus where you can select the categories you want to browse by.
 
-Besides the ability to do faceted browsing, *Facets* also allows creators to extract any subcollection that can be filtered by category and use it on any page of the site. We hope this will be useful in the creation of exhibits that focus on selections.
+Besides the ability to do faceted browsing, *Facets* also allows creators to extract any subcollection that can be filtered by category and use it on any page of the site. We hope this will be useful in the creation of exhibits that focus on particular sub-collections or selections.
 
-[Wax](https://minicomp.github.io/wax/) is a minimal computing toolkit for the creation of digital collections and exhibits. Wax depends on Jekyll, the static site generator. 
+---
 
-## How to use Wax
+## Credits 
 
-To learn more about setting up Wax visit [our documentation wiki](https://minicomp.github.io/wiki/wax/).
+*Facets* is the team work of Angela Zoss and Alex Gil. During the lockdown, they met religiously for two hours every week. They finally met in real life once the project was almost complete. *Facets* builds on the work of Marii Nyrop, and the cheerful encouragement of the Wax community which gathers on [a channel on the Code4Lib Slack](https://code4lib.slack.com/archives/C01DKQ44GE4).
 
-## How to define facets
+### Angela Zoss
 
-As other Wax sites, *Facets* depends on the metadata you create. Let's assume you are using a CSV to record data for your collection. In order for *Facets* to work, that CSV must have separate columns for each large category you want to filter by, or *facet headers*. These become the drop-down menus above the gallery. Each of these columns then accepts a small range of sub-categories, or *facet values*. These are the check boxes.
+Angela is the [Assessment &amp; Data Visualization Analyst](https://library.duke.edu/about/directory/staff/angela.zoss) in the 
+[Assessment &amp; User Experience Department](https://library.duke.edu/about/depts/assessment-user-experience) in the 
+[Duke University Libraries](https://library.duke.edu/). She has many years of experience
+in teaching and training, predominantly focusing on teaching data visualization to
+university students, faculty, and staff. She is also active in several open
+source development projects, including [FOLIO](https://github.com/folio-org/) and
+[Wax](https://github.com/minicomp/wax).
+
+### Alex Gil
+
+Alex Gil is the Digital Scholarship Librarian at Columbia University, where he collaborates with faculty, students and library colleagues in humanities research, pedagogy and knowledge production that involves the use of advanced computation, digital media design, and network technologies. He is the lead coordinator for the [Butler Library Studio](https://studio.cul.columbia.edu/) at Columbia University Libraries, co-host of [Studio Remote](https://www.twitch.tv/culstudio), and co-founder of Columbia’s [Group for Experimental Methods in Humanistic Research](http://xpmethod.columbia.edu/).
+
+### Wax 
+
+[Wax](https://minicomp.github.io/wax/) is a minimal computing ([minicomp](https://github.com/minicomp)) framework for the creation of static web collections and exhibits led by [Marii Nyröp](http://marii.info/). The project is currently maintained by Marii Nyröp at New York University and [Alex Gil](https://github.com/elotroalex) at Columbia University Libraries. Wax depends on [Jekyll](https://jekyllrb.com), the static site generator, and a host of other open source libraries and frameworks including [IIIF](http://iiif.io), [OpenSeaDragon](https://openseadragon.github.io/), [Rake](https://ruby.github.io/rake/), and [ElasticLunr](http://elasticlunr.com/). Wax builds upon work by [Peter Binkley](https://github.com/pbinkley), [David Newbury](https://github.com/workergnome), and others.
 
 
-<img src="{{site.baseurl}}/assets/figures/fig1.png" height="100%" width="100%" alt="Figure 1. Illustration of Facet Headers and Facet Values"/>
-
-
-
-The collection_gallery include requires a "collection" variable and has the following option variables: "only", "facet_by", and "num_column"
-
-It can be added to a page using code like this:
-
-{% raw %}
-  {% include collection_gallery.html collection='qatar'
-      facet_by='object_type|location' num_column=4 %}
-{% endraw %}
-
-If a field name is passed to the include variable "only", the collection
-will be filtered to items that have a truthy value for that field name. (See  https://shopify.github.io/liquid/filters/where/).
-
-For the "facet_by" include variable, specify one or more field names in a
-pipe-separated list.For the "num_column" include variable, specify a number that is a divisor of 12 (i.e, 1, 2, 3, 4, or 6). The default is 2 columns.
 
 
 
