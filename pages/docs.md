@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Learning
-permalink: /docs/
+permalink: /learning/
 ---
 
 ## ... how to use Wax

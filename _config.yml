@@ -95,3 +95,26 @@ search:
           - _date
           - object_type
           - current_location
+
+# --------------------------------------------------------------
+# SITE MENU SETTINGS
+# --------------------------------------------------------------
+# Each menu item needs a `label` (whats shown), and a `link`
+# (where it goes). An item can optionally have a dropdown
+# submenu via `sub`.
+
+menu:
+  - label: 'Exhibits'
+    sub:
+      - label: 'Inline Parallax Image'
+        link: '/exhibits/a/'
+      - label: 'Inline Image References'
+        link: '/exhibits/b/'
+  - label: 'Browse'
+    link: '/collection/'
+  - label: 'Search'
+    link: '/search/'
+  - label: 'How To'
+    link: '/learning/'
+  - label: 'About'
+    link: '/about/'
