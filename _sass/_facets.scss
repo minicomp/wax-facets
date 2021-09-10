@@ -119,6 +119,7 @@ legend {
   display: inline;
 }
 
+
 // Sticky footer
 
 * {
@@ -151,4 +152,55 @@ main {
 code {
   color: $code;
   font-size: 1rem;
+
+/*
+search box
+*/
+
+.search-block{
+  //margin: $more-margin 0 $more-margin 0;
+  #search{
+    border-style: groove;
+    border-width: 2px;
+    //margin-bottom: $more-margin;
+    &:focus {
+        box-shadow: none ;
+        border-color: $medium-background;
+    }
+  }
+  #results {
+    margin: 0;
+    .result {
+      padding: 1em;
+      a {
+        color: $dark-text;
+        text-decoration: none;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: nowrap;
+        img {
+          float: left;
+        }
+        p {
+          margin: 0 !important;
+          padding: 0;
+          .title{
+            color: $medium-background;
+          }
+        }
+      }
+      &:hover {
+        background-color: $light-background;
+      }
+    }
+  }
+}
+
+.sq-thumb-sm {
+  object-fit: cover;
+  object-position: 50% 0%;
+  width: 80px;
+  height: 80px;
+  }
 }
