@@ -106,10 +106,12 @@ search:
 menu:
   - label: 'Exhibits'
     sub:
-      - label: 'Inline Parallax Image'
-        link: '/exhibits/a/'
-      - label: 'Inline Image References'
-        link: '/exhibits/b/'
+      - label: 'Parallax Images'
+        link: '/exhibits/parallax/'
+      - label: 'Image References'
+        link: '/exhibits/references/'
+      - label: 'Subset Collection'
+        link: '/exhibits/subset/'
   - label: 'Browse'
     link: '/collection/'
   - label: 'Search'
