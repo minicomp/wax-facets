@@ -197,3 +197,74 @@ footer {
 main {
     min-height: calc(100vh - 120px);
 }
+
+
+// Inline Images
+
+    .inline-image-reference {
+      background-color: $light-background;
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+      display: inline-block;
+      padding: 1em;
+      max-width: 90%;
+      img {
+        max-width: 100%;
+        max-height: 80vh;
+      }
+
+      .image-caption {
+        margin: 1em 0 1em 0;
+        font-family: $heading-font;
+      }
+    }
+
+
+/* Wax Parallax */
+
+
+
+.wax-parallax.inline-parallax {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding: 0px;
+}
+
+.wax-parallax.top-banner {
+
+}
+
+.wax-parallax {
+  .wax-inline-container {
+    color: $light-background;
+  }
+
+  .parallax-image {
+    background-color: $light-background;
+    width: 100%;
+    height: $parallax-height;
+    max-height: 55vh;
+    margin: 0;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+  .parallax-caption {
+    margin: 0 auto;
+    width: 100%;
+    background-color: $medium-background;
+    padding: 1rem;
+    a {
+      color: $light-background;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      color: $dark-background;
+      }
+  }
+}
+
+
+
