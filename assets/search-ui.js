@@ -23,15 +23,9 @@ function displayResult(item, fields, url) {
   var label = item.label || 'Untitled';
   var link  = item.permalink;
   var thumb = getThumbnail(item, url);
-  var meta  = []
-
-  for (i in fields) {
-    fieldLabel = fields[i];
-    if (fieldLabel in item ) {
-      meta.push(`<b>${fieldLabel}:</b> ${excerptedString(item[fieldLabel])}`);
-    }
-  }
-  return `<div class="result"><a href="${url}${link}">${thumb}<p><span class="title">${item.label}</span><br><span class="meta">${meta.join(' | ')}</span></p></a></div>`;
+  var meta = `<b>collection</b>: ${item.collection} |<b>artist</b>:  ${item.artist}`;
+  // note: href below not working on localhost
+  return `<div class="result"><a href="..${link}">${thumb}<p><span class="title">${item.label}</span><br><span class="meta">${meta}</span></p></a></div>`;
 }
 
 function startSearchUI(fields, indexFile, url) {
