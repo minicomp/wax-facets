@@ -13,20 +13,20 @@ body {
 }
 
 main {
-	padding: 2rem;
+  padding: 2rem;
 }
 
 .subtitle {
-	padding-bottom: 0.3125rem;
+  padding-bottom: 0.3125rem;
 }
 
 .banner {
-	background-color: $dark-background;
-	color: $light-text;
+  background-color: $dark-background;
+  color: $light-text;
 }
 
 .banner a {
-	color: $light-link;
+  color: $light-link;
 }
 
 .banner a:hover {
@@ -34,8 +34,8 @@ main {
 }
 
 a.action-button {
-	background-color: $medium-background;
-	color: $light-text;
+  background-color: $medium-background;
+  color: $light-text;
 }
 
 a.action-button:hover  {
@@ -119,43 +119,10 @@ legend {
   display: inline;
 }
 
-
-// Sticky footer
-
-* {
-  margin: 0;
-}
-
-html, body {
-  height: 100%;
-}
-
-#wrapper {
-  min-height: 100%;
-  height: auto !important;
-  height: 100%;
-  /* margin: 0 auto -6vh; */
-}
-
-footer {
-  height: 10vh;
-  padding: .5rem;
-}
-
-
-main {
-    min-height: calc(100vh - 120px);
-}
-
-// End sticky footer
-
-code {
-  color: $code;
-  font-size: 1rem;
-
 /*
 search box
 */
+
 
 .search-block{
   //margin: $more-margin 0 $more-margin 0;
@@ -197,10 +164,36 @@ search box
   }
 }
 
-.sq-thumb-sm {
+.sq-thumb-sm{
   object-fit: cover;
   object-position: 50% 0%;
   width: 80px;
   height: 80px;
-  }
+}
+
+// Sticky footer
+
+* {
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+#wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  /* margin: 0 auto -6vh; */
+}
+
+footer {
+  height: 10vh;
+  padding: .5rem;
+}
+
+
+main {
+    min-height: calc(100vh - 120px);
 }
