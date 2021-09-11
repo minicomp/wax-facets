@@ -8,8 +8,18 @@
 layout: home
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse porttitor eleifend ante, imperdiet malesuada ex elementum ut. Nullam lobortis lacus vitae iaculis auctor. Proin convallis, tortor consequat mattis lobortis, felis nulla ullamcorper nunc, nec eleifend eros risus eget enim. Duis semper placerat consectetur. Vestibulum quam leo, feugiat ac erat nec, dictum vestibulum leo. Fusce luctus sem sit amet massa tincidunt sodales. Nam fringilla ipsum eu mollis sodales. Nam mi erat, ornare nec molestie quis, pellentesque eu ex. Quisque viverra, augue eu mattis sagittis, metus lorem feugiat nisi, quis vestibulum ipsum neque ut enim. Suspendisse vehicula sit amet odio in rutrum. Duis sit amet purus velit. Mauris egestas, eros eu ultricies suscipit, lorem enim condimentum leo, dapibus condimentum augue nulla vitae lorem. Sed tempor in justo id tincidunt. Pellentesque sit amet gravida felis. Mauris vitae maximus orci. Quisque porttitor vitae tortor condimentum bibendum.
+### Facet <span style="color:#440027;font-size:small"><em>noun</em></span>
 
-Ut eu orci sit amet est semper dapibus in vel ex. In hac habitasse platea dictumst. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam eget euismod leo. Aenean vehicula pretium tortor sed viverra. Nunc egestas lectus at mauris consectetur pulvinar. Donec faucibus mauris a metus tincidunt, ut accumsan nulla vestibulum. Etiam condimentum sed orci ut mollis. Mauris vestibulum massa quis massa tempor, a volutpat est consectetur. Nullam facilisis, arcu nec bibendum fermentum, nisl ante imperdiet risus, sit amet rutrum mi ipsum et mauris. Cras ex libero, tincidunt vestibulum iaculis rutrum, consectetur quis arcu. In est lectus, elementum non imperdiet a, hendrerit in odio. Maecenas nisi justo, congue feugiat risus at, tincidunt lobortis lacus. Nullam ut sollicitudin nunc, a pharetra magna.
+**fac·et** | \ ˈfa-sət
 
-<div class="text-center"><a class="action-button btn" href="#" role="button">Link</a></div>
+1. any of the definable aspects that make up a subject or an object. Ex. *Each facet of the problem requires careful attention*.
+2. a small plane surface.
+3. the external corneal surface of an ommatidium. (*[Merriam-Webster](https://www.merriam-webster.com/dictionary/facet)*)
+
+---
+
+*Facets* is a theme for [Wax sites](https://minicomp.github.io\/wax/) that allows users to browse through a collection using facets, or filters. When we are browsing through a collection of cultural artifacts, we often want to reduce the number of objects in front of us to a small collection that fits a very specific criteria. Faceted browsing is a form of browsing that allows you to do just that using filters you select. In Facets this can be achieved using drop-down menus where you can select the categories you want to browse by.
+
+This template is open source. To use it for your small collection and exhibits simply replace our content with yours. To learn more visit our ["About"]({{site.baseurl}}/about/) page and our ["How to"]({{site.baseurl}}/learning/) page. If you know what you're doing, and you're ready to jump right in, then go ahead and...
+
+<div class="text-center"><a class="action-button btn" href="https://github.com/minicomp/wax-facets/" target="_blank" role="button">get me on Github</a></div>
