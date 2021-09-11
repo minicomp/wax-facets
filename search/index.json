@@ -12,6 +12,7 @@ layout: none
     "current_location": "The Museum of Islamic Art, Qatar",
     "collection": "qatar",
     "thumbnail": "img/derivatives/simple/obj5/thumbnail.jpg",
+    "content": " ",
     "permalink": "/qatar/obj5",
     "lunr_id": 0
   },
@@ -25,6 +26,7 @@ layout: none
     "current_location": "The Museum of Islamic Art, Qatar",
     "collection": "qatar",
     "thumbnail": "img/derivatives/simple/obj10/thumbnail.jpg",
+    "content": " ",
     "permalink": "/qatar/obj10",
     "lunr_id": 1
   },
@@ -38,6 +40,7 @@ layout: none
     "current_location": "The Museum of Islamic Art, Qatar",
     "collection": "qatar",
     "thumbnail": "img/derivatives/simple/obj1/thumbnail.jpg",
+    "content": " ",
     "permalink": "/qatar/obj1",
     "lunr_id": 2
   },
@@ -51,6 +54,7 @@ layout: none
     "current_location": "The Museum of Islamic Art, Qatar",
     "collection": "qatar",
     "thumbnail": "img/derivatives/simple/obj4/thumbnail.jpg",
+    "content": " ",
     "permalink": "/qatar/obj4",
     "lunr_id": 3
   },
@@ -64,6 +68,7 @@ layout: none
     "current_location": "The Museum of Islamic Art, Qatar",
     "collection": "qatar",
     "thumbnail": "img/derivatives/simple/obj11/thumbnail.jpg",
+    "content": " ",
     "permalink": "/qatar/obj11",
     "lunr_id": 4
   },
@@ -77,6 +82,7 @@ layout: none
     "current_location": "The Museum of Islamic Art, Qatar",
     "collection": "qatar",
     "thumbnail": "img/derivatives/simple/obj9/thumbnail.jpg",
+    "content": " ",
     "permalink": "/qatar/obj9",
     "lunr_id": 5
   },
@@ -90,6 +96,7 @@ layout: none
     "current_location": "The Museum of Islamic Art, Qatar",
     "collection": "qatar",
     "thumbnail": "img/derivatives/simple/obj8/thumbnail.jpg",
+    "content": " ",
     "permalink": "/qatar/obj8",
     "lunr_id": 6
   },
@@ -103,6 +110,7 @@ layout: none
     "current_location": "The Museum of Islamic Art, Qatar",
     "collection": "qatar",
     "thumbnail": "img/derivatives/simple/obj3/thumbnail.jpg",
+    "content": " ",
     "permalink": "/qatar/obj3",
     "lunr_id": 7
   },
@@ -116,6 +124,7 @@ layout: none
     "current_location": "The Museum of Islamic Art, Qatar",
     "collection": "qatar",
     "thumbnail": "img/derivatives/simple/obj7/thumbnail.jpg",
+    "content": " ",
     "permalink": "/qatar/obj7",
     "lunr_id": 8
   },
@@ -129,6 +138,7 @@ layout: none
     "current_location": "Qatar National Library",
     "collection": "qatar",
     "thumbnail": "img/derivatives/simple/obj12_05/thumbnail.jpg",
+    "content": " ",
     "permalink": "/qatar/obj12",
     "lunr_id": 9
   },
@@ -142,6 +152,7 @@ layout: none
     "current_location": "The Museum of Islamic Art, Qatar",
     "collection": "qatar",
     "thumbnail": "img/derivatives/simple/obj6/thumbnail.jpg",
+    "content": " ",
     "permalink": "/qatar/obj6",
     "lunr_id": 10
   },
@@ -155,6 +166,7 @@ layout: none
     "current_location": "The Museum of Islamic Art, Qatar",
     "collection": "qatar",
     "thumbnail": "img/derivatives/simple/obj2/thumbnail.jpg",
+    "content": " ",
     "permalink": "/qatar/obj2",
     "lunr_id": 11
   }

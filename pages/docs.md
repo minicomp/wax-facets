@@ -36,7 +36,7 @@ If you pass the `only` variable to the include instruction, the collection will 
 
 The gallery that results from this instruction, which you can see in our "[Exhibit with Subset Collection](/exhibits/subset/)," only shows portraits. Notice also that this gallery view does not have a faceting menu.
 
-### ... change our design
+## ... change our design
 
 In *Facets* we offer you another prototype, just as *Wax* itself is a prototype to think and do with. Both of these are built on Jekyll, which allows you an enormous amount of flexibility for changing the design of your site. Feel free to play around with the code that makes our exhibit pages and our galleries tick.
 

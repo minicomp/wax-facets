@@ -87,7 +87,7 @@ search:
     index: '/search/index.json' # file the index will get written to
     collections:
       qatar:
-        content: false # whether or not to index page content
+        content: true # whether or not to index page content
         fields: # the metadata fields to index
           - artist
           - location
