@@ -13,7 +13,7 @@ Facets is a [Wax](https://minicomp.github.io/wax/) theme. Wax in turn relies on 
 As other Wax sites, *Facets* depends on the metadata you create. Let's assume you are using a CSV to record data for your collection. In order for *Facets* to work, that CSV must have designated columns for each large category you want to "facet" by. These become the *facet headers* at the top of the drop-down menus above the gallery. Each of these columns then accepts a small range of sub-categories, or *facet values*. These become the check boxes.
 
 <br>
-<img src="{{site.baseurl}}/assets/figures/fig1.png" height="100%" width="100%" alt="Figure 1. Illustration of Facet Headers and Facet Values"/>
+<img src="{{'/assets/figures/fig1.png' | absolute_url}}" height="100%" width="100%" alt="Figure 1. Illustration of Facet Headers and Facet Values"/>
 <br>
 <br>
 
