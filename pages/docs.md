@@ -38,7 +38,7 @@ The gallery that results from this instruction, which you can see in our "[Exhib
 
 ## ... change our design
 
-In *Facets* we offer you another prototype, just as *Wax* itself is a prototype to think and do with. Both of these are built on Jekyll, which allows you an enormous amount of flexibility for changing the design of your site. Feel free to play around with the code that makes our exhibit pages and our galleries tick.
+*Facets* is a prototype, just as *Wax* itself is a prototype, a tool to think with that is also immediately practical. Both of these are built on Jekyll, which allows you an enormous amount of flexibility for changing the design of your site. Feel free to play around with the code that makes our exhibit pages and our galleries tick. The more you transform our work, the more we will feel like we succeeded.
 
 The CSS that determines the look of the site is done using a combination of SASS and the bootstrap framework. To change some common variables, like colors or fonts, you can edit the `/assets/css/style.scss` file. You can always override our own choices from this file as well. You can also add your own CSS files to the `_sass` folder, and simply import them into the main sass file above.
 
