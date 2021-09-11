@@ -1,4 +1,4 @@
-# wax-facets
+# Facets
 
 *Facets* is a theme for [Wax sites](https://minicomp.github.io\/wax/) that allows users to browse through a collection using facets, or filters. When we are browsing through a collection of cultural artifacts, we often want to reduce the number of objects in front of us to a small collection that fits a very specific criteria. Faceted browsing is a form of browsing that allows you to do just that using filters you select. In Facets this can be achieved using drop-down menus where you can select the categories you want to browse by.
 
