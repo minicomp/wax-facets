@@ -21,10 +21,7 @@ The first step before using a facet gallery on any one of your pages is to add `
 
 Next, we tell _Facets_ what collection gallery to insert and what columns to facet by with a Jekyll `include` command that brings in the `facet_gallery` at the desired place on the page. This `include` snippet requires a `collection:` variable and a `facet_by:` variable. You can also pass an optional variable to control the number of columns displayed on large screens: `num_column:`. This theme already comes with the following example in the [Browse](/collection/) page. In order to use it, just replace the sample values with your own when editing the page:
 
-<code>{% raw %}
-{% include facet_gallery.html collection='qatar'
-      facet_by='object_type|location' num_column=4 %}
-{% endraw %}</code>
+`{% raw %}{% include facet_gallery.html collection='qatar' facet_by='object_type|location' num_column=4 %}{% endraw %}`
 
 Notice that insteald of the normal `collection_gallery.html` we use a special `facet_gallery.html`.
 
@@ -34,7 +31,7 @@ For the `facet_by:` variable, specify one or more field names in a pipe-separate
 
 _Facets_ also allows you to create galleries for subsets of your collections. A subset collection will only include items that have [a truthy value](https://shopify.github.io/liquid/filters/where/) for that specific "field value." Consider the example we use in '[Exhibit with Subset Collection](/exhibits/subset/)':
 
-<code>{% raw %}{% include subset_gallery.html collection='qatar' field='object_type' value='portrait' num_column=4 %}{% endraw %}</code>
+`{% raw %}{% include subset_gallery.html collection='qatar' field='object_type' value='portrait' num_column=4 %}{% endraw %}`
 
 The gallery that results from this instruction only shows portraits. This `include` command is slightly different than the one for faceted browsing. They both share a `collection:` and a `num_column:` variable. To use this `include`, though, you need to declare a `field:` variable or column from your data, and the `value:` you want to limit your subset to. Notice that this gallery view does not have a faceting menu.
 
