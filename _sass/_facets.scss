@@ -49,10 +49,11 @@ a, a.dropdown-item {
     color: $dark-background;
   }
 }
+
+
+
 /*
-
-item pages (iiif + metadata)
-
+ITEM PAGES (iiif + metadata)
 */
 
 .pagination {
@@ -68,31 +69,6 @@ item pages (iiif + metadata)
   }
 
 
-}
-
-.image-viewer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height:   80vh;
-}
-
-.gallery-thumb {
-  height: 30vh;
-  object-fit: cover;
-  object-position: 50% 0%;
-}
-
-.item-view {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
-}
-
-.card-title {
-  font-size: 1.2rem;
-}
-
-p.card-text {
-  color: $dark-text;
 }
 
 .item-metadata {
@@ -114,29 +90,12 @@ p.card-text {
 }
 
 
-.facet-card {
-  border: 0px;
-}
 
-.facet-header {
-  border: 1px solid rgba(0, 0, 0, 0.125);
-}
 
-.facet-bn {
-  text-transform: capitalize;
-}
 
-.active {
-  border: 1px solid rgba(0, 0, 0, 0.125);
-}
-
-legend {
-  font-size: 1rem;
-  display: inline;
-}
 
 /*
-search box
+SEARCH BOX
 */
 
 
@@ -215,7 +174,9 @@ main {
 }
 
 
-// Inline Images
+/* 
+INLINE IMAGES
+*/
 
     .inline-image-reference {
       background-color: $light-background;
@@ -236,7 +197,9 @@ main {
     }
 
 
-/* Wax Parallax */
+/* 
+WAX PARALLAX 
+*/
 
 
 
@@ -286,4 +249,55 @@ main {
   color: #D49A6A;
   font-size: 1.8rem;
   height:1.2em;
+}
+
+/* 
+FACET GALLERY 
+*/
+
+.image-viewer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:   80vh;
+}
+
+.gallery-thumb {
+  height: 30vh;
+  object-fit: cover;
+  object-position: 50% 0%;
+}
+
+.item-view {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.card-title {
+  font-size: 1.2rem;
+}
+
+p.card-text {
+  color: $dark-text;
+}
+
+
+.facet-card {
+  border: 0px;
+}
+
+.facet-header {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.facet-bn {
+  text-transform: capitalize;
+}
+
+.active {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+legend {
+  font-size: 1rem;
+  display: inline;
 }
