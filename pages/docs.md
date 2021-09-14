@@ -17,7 +17,9 @@ As other Wax sites, _Facets_ depends on the metadata you create. Let's assume yo
 <br>
 <br>
 
-We tell _Facets_ what collection gallery to insert and what columns to facet by with a Jekyll `include` command that brings in the `facet_gallery` at the desired place on the page. This `include` snippet requires a `collection:` variable and a `facet_by:` variable. You can also pass an optional variable to control the number of columns displayed on large screens: `num_column:`. This theme already comes with the following example in the [Browse](/collection/) page. In order to use it, just replace the sample values with your own when editing the page:
+The first step before using a facet gallery on any one of your pages is to add `gallery: True` to your YAML header. See the example at the top of our [collection.md](https://github.com/minicomp/wax-facets/blob/main/pages/collection.md) file.
+
+Next, we tell _Facets_ what collection gallery to insert and what columns to facet by with a Jekyll `include` command that brings in the `facet_gallery` at the desired place on the page. This `include` snippet requires a `collection:` variable and a `facet_by:` variable. You can also pass an optional variable to control the number of columns displayed on large screens: `num_column:`. This theme already comes with the following example in the [Browse](/collection/) page. In order to use it, just replace the sample values with your own when editing the page:
 
 <code>{% raw %}
 {% include facet_gallery.html collection='qatar'
