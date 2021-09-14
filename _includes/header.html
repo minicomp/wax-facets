@@ -1,24 +1,54 @@
 <header class="site-header">
         <nav class="navbar navbar-expand-md banner">
-            <a class="title navbar-brand" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
+            <a class="title navbar-brand" rel="author" href="{{ '/' | relative_url }}">{{ site.title | escape }}</a>
             <span class="subtitle navbar-text">{{ site.subtitle | escape }}</span>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarToggler">
+
+  <!-- Collapse button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent15"
+    aria-controls="navbarSupportedContent15" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon">&#9776;</span></button>
+
+  <!-- Collapsible content -->
+  <div class="collapse navbar-collapse" id="navbarSupportedContent15">
+                
+    <!-- Links -->
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/about/">About <span class="sr-only">About</span></a>
+                {% for item in site.menu %}
+                    {% if item.sub %}
+                    <li class='nav-item dropdown'>
+                    <a class='nav-link dropdown-toggle' href='#' id='wax-{{ item.label | slugify }}-dropdown' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+                    {{ item.label }}
+                    </a>
+                    <div class='dropdown-menu' aria-labelledby='wax-{{ item.label | slugify }}-dropdown'>
+                    {% for sub in item.sub %}
+                    <a class='dropdown-item' href='{{ sub.link | absolute_url }}'>{{ sub.label }}</a>
+                    {% endfor %}
+                    </div>
+                    </li>
+                    {% else %}
+                    <li class='nav-item'>
+                        <a class='nav-link' href='{{ item.link | absolute_url }}'>{{ item.label }}</a>
+                    </li>
+                    {% endif %}
+                {% endfor %}
+                    <!-- <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="wax-exhibits-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Exhibits</a>
+                        <div class='dropdown-menu' aria-labelledby='wax-exhibits-dropdown'>
+                            <a class='dropdown-item' href='{{"/exhibits/a/" | relative_url}}'>Inline Parallax Image</a>
+                            <a class='dropdown-item' href='{{"/exhibits/b/" | relative_url}}'>Inline Image References</a>              
+                        </div>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/collection/">Browse</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/credits/">Credits</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="/search/">Search</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/docs/">How to</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/about/">About <span class="sr-only">About</span></a>
+                    </li> -->
                 </ul>
         </nav>
 </header>

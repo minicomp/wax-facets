@@ -22,8 +22,8 @@
 
 {% assign collection = site[include.collection] %}
 
-{% if include.only %}
-  {% assign collection = collection | where: include.only | sort: 'order' %}
+{% if include.only and include.facet_by and include.num_column %}
+  {% assign subset = collection | where: include.facet_by, include.only | sort: 'order' %}
 {% endif %}
 
 {% if include.num_column %}
@@ -32,6 +32,42 @@
   {% assign min_column_width = 6 %}
 {% endif %}
 
+{% if include.only %}
+
+
+<div id='wax-gallery-{{ include.collection }}-container' class='wax-gallery-container full-width'>
+  <div class='wax-inline-container'>
+    <div id="wax-gallery-{{ include.collection }}" class="wax-gallery">
+      <div class="row">
+      {% for item in subset %}
+        <div class="gallery-item {{  newClasses | join: ' ' }} col-xl-{{min_column_width}} p-1">
+            <div class='card thumbnail-card'>
+              <img class='d-block card-img-top gallery-thumb w-100 mh-100' src='{{ item.thumbnail | absolute_url }}' alt="{{ item.label }}"/>
+              <div class="card-body">
+                <a href="{{ item.url | absolute_url }}"><h3 class="card-title">{{ item.label }}</h3></a>
+                <!-- remove default text below or replace with a description from
+                the item record (e.g., {{item.description}}) -->
+                <p class="card-text small">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              </div>
+            </div>
+          </div>
+<!--         <div class='gallery-item {{ item[include.facet_by] | slugify }} all'>
+          <a href='{{ item.url | absolute_url }}'>
+            <div class='hovereffect'>
+              <img class='img-responsive gallery-thumb' src='{{ item.thumbnail | absolute_url }}'/>
+              <div class='overlay'>
+                <p class='info'>{{ item.label }}</p>
+              </div>
+            </div>
+          </a>
+        </div> -->
+      {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% else %}
+
 {% if include.facet_by %}
 
 <!--
@@ -39,6 +75,8 @@
   page where each variable gets a set of checkboxes corresponding to
   all of the possible values of that field.
 -->
+
+
 
   {% assign facet_list = include.facet_by | split: "|" %}
 
@@ -108,23 +146,4 @@
   </div>
 </div>
 
-<script type="text/javascript">
-  $( document ).ready(function() {
-
-    {% if include.facet_by %}
-        $(document).ready(function(){
-
-          console.log({{ facet_list | jsonify }}) // liquid array of one or more fields for facetting
-
-          // This JavaScript controls the expanding and contracting facet headers.
-          // Additional JS for this page in assets/js/facets.js
-          $('.facet-bn[aria-expanded]').click(function(event){
-            $(this).parent().parent().toggleClass("active");
-            // this selector might return multiple elements
-            $(this).children('legend').children('.oi').toggleClass("oi-chevron-bottom oi-chevron-top");
-          });
-
-        });
-    {% endif %}
-  });
-</script>
+{% endif %}

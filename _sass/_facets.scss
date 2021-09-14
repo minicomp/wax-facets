@@ -13,20 +13,20 @@ body {
 }
 
 main {
-	padding: 2rem;
+  padding: 2rem;
 }
 
 .subtitle {
-	padding-bottom: 0.3125rem;
+  padding-bottom: 0.3125rem;
 }
 
 .banner {
-	background-color: $dark-background;
-	color: $light-text;
+  background-color: $dark-background;
+  color: $light-text;
 }
 
 .banner a {
-	color: $light-link;
+  color: $light-link;
 }
 
 .banner a:hover {
@@ -34,8 +34,8 @@ main {
 }
 
 a.action-button {
-	background-color: $medium-background;
-	color: $light-text;
+  background-color: $medium-background;
+  color: $light-text;
 }
 
 a.action-button:hover  {
@@ -43,7 +43,7 @@ a.action-button:hover  {
   color: $light-link-hover;
 }
 
-a {
+a, a.dropdown-item {
   color: $medium-background;
   &:hover{
     color: $dark-background;
@@ -117,4 +117,157 @@ p.card-text {
 legend {
   font-size: 1rem;
   display: inline;
+}
+
+/*
+search box
+*/
+
+
+.search-block{
+  //margin: $more-margin 0 $more-margin 0;
+  #search{
+    border-style: groove;
+    border-width: 2px;
+    //margin-bottom: $more-margin;
+    &:focus {
+        box-shadow: none ;
+        border-color: $medium-background;
+    }
+  }
+  #results {
+    margin: 0;
+    .result {
+      padding: 1em;
+      a {
+        color: $dark-text;
+        text-decoration: none;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: nowrap;
+        img {
+          float: left;
+        }
+        p {
+          margin: 0 !important;
+          padding: 0;
+          .title{
+            color: $medium-background;
+          }
+        }
+      }
+      &:hover {
+        background-color: $light-background;
+      }
+    }
+  }
+}
+
+.sq-thumb-sm{
+  object-fit: cover;
+  object-position: 50% 0%;
+  width: 80px;
+  height: 80px;
+}
+
+// Sticky footer
+
+* {
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+#wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  /* margin: 0 auto -6vh; */
+}
+
+footer {
+  height: 10vh;
+  padding: .5rem;
+}
+
+
+main {
+    min-height: calc(100vh - 120px);
+}
+
+
+// Inline Images
+
+    .inline-image-reference {
+      background-color: $light-background;
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+      display: inline-block;
+      padding: 1em;
+      max-width: 90%;
+      img {
+        max-width: 100%;
+        max-height: 80vh;
+      }
+
+      .image-caption {
+        margin: 1em 0 1em 0;
+        font-family: $heading-font;
+      }
+    }
+
+
+/* Wax Parallax */
+
+
+
+.wax-parallax.inline-parallax {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding: 0px;
+}
+
+.wax-parallax.top-banner {
+
+}
+
+.wax-parallax {
+  .wax-inline-container {
+    color: $light-background;
+  }
+
+  .parallax-image {
+    background-color: $light-background;
+    width: 100%;
+    height: $parallax-height;
+    max-height: 55vh;
+    margin: 0;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+  .parallax-caption {
+    margin: 0 auto;
+    width: 100%;
+    background-color: $medium-background;
+    padding: 1rem;
+    a {
+      color: $light-background;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      color: $dark-background;
+      }
+  }
+}
+
+.navbar-toggler-icon {
+  color: #D49A6A;
+  font-size: 1.8rem;
+  height:1.2em;
 }

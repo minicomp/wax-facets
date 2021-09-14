@@ -7,7 +7,7 @@ description: > # this means to ignore newlines until "show_excerpts:"
   Write an awesome description for your new site here. You can edit this
   line in _config.yml. It will appear in your document head meta (for
   Google search results) and in your feed.xml site description.
-baseurl: ''
+baseurl: '/wax-facets'
 
 show_excerpts: false # set to true to show excerpts on the homepage
 
@@ -87,7 +87,7 @@ search:
     index: '/search/index.json' # file the index will get written to
     collections:
       qatar:
-        content: false # whether or not to index page content
+        content: true # whether or not to index page content
         fields: # the metadata fields to index
           - artist
           - location
@@ -95,3 +95,28 @@ search:
           - _date
           - object_type
           - current_location
+
+# --------------------------------------------------------------
+# SITE MENU SETTINGS
+# --------------------------------------------------------------
+# Each menu item needs a `label` (whats shown), and a `link`
+# (where it goes). An item can optionally have a dropdown
+# submenu via `sub`.
+
+menu:
+  - label: 'Exhibits'
+    sub:
+      - label: 'Parallax Images'
+        link: '/exhibits/parallax/'
+      - label: 'Image References'
+        link: '/exhibits/references/'
+      - label: 'Subset Collection'
+        link: '/exhibits/subset/'
+  - label: 'Browse'
+    link: '/collection/'
+  - label: 'Search'
+    link: '/search/'
+  - label: 'How To'
+    link: '/learning/'
+  - label: 'About'
+    link: '/about/'
