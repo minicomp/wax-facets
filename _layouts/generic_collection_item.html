@@ -13,9 +13,9 @@ layout: default
     <div class='pagination-link' id='nextlink'></div>
   </div>
 </div>
-<div class="row">
+<!--div class="row">
   <h1 alt="{{ page.label }}" class='item-label'>{{ page.label }}</h1>
-</div>
+</div-->
 
 <div class='row card thumbnail-card'>
 
@@ -40,10 +40,12 @@ layout: default
     {% unless layout.pagination == false %}{% include item_pagination.html %}{% endunless %}
   {% endif %}
 
-  <div class="card-body">
+  <div class="card-body item-metadata">
     {% comment %}
       The block below controls the item metadata table
     {% endcomment %}
+
+    <h1 alt="{{ page.label }}" class='item-label'>{{ page.label }}</h1>
 
     <div class="row">
       {% if layout.meta.size %}

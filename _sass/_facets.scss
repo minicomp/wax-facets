@@ -83,6 +83,10 @@ item pages (iiif + metadata)
   object-position: 50% 0%;
 }
 
+.item-view {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
 .card-title {
   font-size: 1.2rem;
 }
@@ -91,12 +95,24 @@ p.card-text {
   color: $dark-text;
 }
 
+.item-metadata {
+  padding: 3rem;
+}
 
 .metadata-block {
   font-family: $body-font;
   max-width: 100%;
   padding: 1rem;
+  font-size: 1.2rem;
+
+  dt {
+    color: $muted-text;
+    font-size: 1rem;
+    font-family: $heading-font;
+  }
+
 }
+
 
 .facet-card {
   border: 0px;
