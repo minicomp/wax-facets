@@ -85,7 +85,7 @@
           {% assign newClasses = newClasses | concat: fieldSetArray %}
           {% endfor %}
 
-          <div class="gallery-item {{  newClasses | join: ' ' }} col-xl-{{min_column_width}} p-1">
+          <div class="gallery-item-facets {{  newClasses | join: ' ' }} col-xl-{{min_column_width}} p-1">
 
             <div class='card thumbnail-card'>
               <img class='d-block card-img-top gallery-thumb w-100 mh-100' src='{{ item.thumbnail | absolute_url }}' alt="{{ item.label }}"/>
