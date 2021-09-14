@@ -6,14 +6,13 @@ filters in the collection_gallery.html include.
 */
 
 // Set up empty object to store checkbox selections
-var facets = {
-}
+var facets = {};
 
 // Set up empty array to store the ids of each facet fieldset
 var setIds = [];
 
-$('fieldset').each( function(i,e) {
-    setIds.push(e.id);
+$("fieldset").each(function (i, e) {
+  setIds.push(e.id);
 });
 
 // Count the number of fieldsets on the page
@@ -26,22 +25,20 @@ var numberFacets = setIds.length;
 var i;
 
 for (i = 0; i < numberFacets; i++) {
-	facets[setIds[i]] = new Array();
-    // console.log(facets[setIds[i]])
+  facets[setIds[i]] = new Array();
+  // console.log(facets[setIds[i]])
 }
 
 // add code that runs whenever a checkbox is turned on or off
-$('#facets :checkbox').change(function() {
-
+$("#facets :checkbox").change(function () {
   // find the checkboxes parent fieldset id by taking its class name
   // and adding "-set" to the end
-  var pinClass = this.className + '-set';
+  var pinClass = this.className + "-set";
   //console.log(pinClass);
 
   // find the id for this checkbox
   var pinId = this.id;
   //console.log(pinId);
-
 
   // use fieldset id as key to facets object; add or remove current checkbox id
   // from the array for that key.
@@ -49,8 +46,8 @@ $('#facets :checkbox').change(function() {
     facets[pinClass].push(pinId);
     //console.log(facets[pinClass]);
   } else {
-    facets[pinClass] = facets[pinClass].filter(function(value, index, arr){
-      return value != pinId ;
+    facets[pinClass] = facets[pinClass].filter(function (value, index, arr) {
+      return value != pinId;
     });
     //console.log(facets[pinClass]);
   }
@@ -60,14 +57,13 @@ $('#facets :checkbox').change(function() {
 });
 
 function refreshGallery() {
-
   // this function shows and hides gallery items based on active checkboxes
 
   // grab all gallery items
-  var listOfElements = $('.gallery-item');
+  var listOfElements = $(".gallery-item-facets");
 
   // start by clearing the gallery of all items
-  listOfElements.hide('slow');
+  listOfElements.hide("slow");
 
   // starting with the full list of all elements, loop through each fieldset
   // one at a time and keep only the elements that have one or more of the
@@ -88,18 +84,17 @@ function refreshGallery() {
   // - after finishing the for loop, take all remaining elements and show them
   for (i = 0; i < numberFacets; i++) {
     var inputIds = [];
-  	if (facets[setIds[i]].length == 0) {
-      $(`#${setIds[i]} input`).each( function(i,e) {
-          inputIds.push("." + e.id);
+    if (facets[setIds[i]].length == 0) {
+      $(`#${setIds[i]} input`).each(function (i, e) {
+        inputIds.push("." + e.id);
       });
-    }
-    else {
-      inputIds = facets[setIds[i]].map(function(el) {
-        return '.' + el;
+    } else {
+      inputIds = facets[setIds[i]].map(function (el) {
+        return "." + el;
       });
     }
     listOfClasses = inputIds.join(",");
     listOfElements = listOfElements.filter($(`${listOfClasses}`));
   }
-  listOfElements.show('slow');
+  listOfElements.show("slow");
 }
