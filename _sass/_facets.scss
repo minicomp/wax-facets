@@ -2,9 +2,14 @@
 
 // Import Bootstrap
 
-@import 'bootstrap';
+@import "bootstrap";
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: $heading-font;
 }
 
@@ -36,28 +41,27 @@ main {
 a.action-button {
   background-color: $medium-background;
   color: $light-text;
+  margin: 1rem;
 }
 
-a.action-button:hover  {
+a.action-button:hover {
   background-color: $dark-background;
   color: $light-link-hover;
 }
 
-a, a.dropdown-item {
+a,
+a.dropdown-item {
   color: $medium-background;
-  &:hover{
+  &:hover {
     color: $dark-background;
   }
 }
-
-
 
 /*
 ITEM PAGES (iiif + metadata)
 */
 
 .pagination {
-
   .pagination-link {
     padding: 1rem;
     a {
@@ -67,8 +71,6 @@ ITEM PAGES (iiif + metadata)
       text-decoration: none !important;
     }
   }
-
-
 }
 
 .item-metadata {
@@ -86,28 +88,21 @@ ITEM PAGES (iiif + metadata)
     font-size: 1rem;
     font-family: $heading-font;
   }
-
 }
-
-
-
-
-
 
 /*
 SEARCH BOX
 */
 
-
-.search-block{
+.search-block {
   //margin: $more-margin 0 $more-margin 0;
-  #search{
+  #search {
     border-style: groove;
     border-width: 2px;
     //margin-bottom: $more-margin;
     &:focus {
-        box-shadow: none ;
-        border-color: $medium-background;
+      box-shadow: none;
+      border-color: $medium-background;
     }
   }
   #results {
@@ -127,7 +122,7 @@ SEARCH BOX
         p {
           margin: 0 !important;
           padding: 0;
-          .title{
+          .title {
             color: $medium-background;
           }
         }
@@ -139,7 +134,7 @@ SEARCH BOX
   }
 }
 
-.sq-thumb-sm{
+.sq-thumb-sm {
   object-fit: cover;
   object-position: 50% 0%;
   width: 80px;
@@ -152,7 +147,8 @@ SEARCH BOX
   margin: 0;
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -165,43 +161,38 @@ html, body {
 
 footer {
   height: 10vh;
-  padding: .5rem;
+  padding: 0.5rem;
 }
-
 
 main {
-    min-height: calc(100vh - 120px);
+  min-height: calc(100vh - 120px);
 }
-
 
 /* 
 INLINE IMAGES
 */
 
-    .inline-image-reference {
-      background-color: $light-background;
-      margin-top: 1rem;
-      margin-bottom: 2rem;
-      display: inline-block;
-      padding: 1em;
-      max-width: 90%;
-      img {
-        max-width: 100%;
-        max-height: 80vh;
-      }
+.inline-image-reference {
+  background-color: $light-background;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  display: inline-block;
+  padding: 1em;
+  max-width: 90%;
+  img {
+    max-width: 100%;
+    max-height: 80vh;
+  }
 
-      .image-caption {
-        margin: 1em 0 1em 0;
-        font-family: $heading-font;
-      }
-    }
-
+  .image-caption {
+    margin: 1em 0 1em 0;
+    font-family: $heading-font;
+  }
+}
 
 /* 
 WAX PARALLAX 
 */
-
-
 
 .wax-parallax.inline-parallax {
   margin-top: 2rem;
@@ -210,7 +201,6 @@ WAX PARALLAX
 }
 
 .wax-parallax.top-banner {
-
 }
 
 .wax-parallax {
@@ -241,14 +231,14 @@ WAX PARALLAX
     a:hover {
       text-decoration: underline;
       color: $dark-background;
-      }
+    }
   }
 }
 
 .navbar-toggler-icon {
-  color: #D49A6A;
+  color: #d49a6a;
   font-size: 1.8rem;
-  height:1.2em;
+  height: 1.2em;
 }
 
 /* 
@@ -259,7 +249,7 @@ FACET GALLERY
   display: flex;
   justify-content: center;
   align-items: center;
-  height:   80vh;
+  height: 80vh;
 }
 
 .gallery-thumb {
@@ -279,7 +269,6 @@ FACET GALLERY
 p.card-text {
   color: $dark-text;
 }
-
 
 .facet-card {
   border: 0px;
