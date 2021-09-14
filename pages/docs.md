@@ -17,24 +17,24 @@ As other Wax sites, _Facets_ depends on the metadata you create. Let's assume yo
 <br>
 <br>
 
-We tell _Facets_ what collection gallery to insert and what columns to facet by with a Jekyll `include` command that brings in the `collection_gallery` at the desired place on the page. This `include` snippet requires a `collection` variable, but can take three other optional variables to help you refine the results further: `only`, `facet_by`, and `num_column`. This theme already comes with the following example in the [Browse](/collection/) page. In order to use it, just replace the sample values with your own when editing the page:
+We tell _Facets_ what collection gallery to insert and what columns to facet by with a Jekyll `include` command that brings in the `facet_gallery` at the desired place on the page. This `include` snippet requires a `collection:` variable and a `facet_by:` variable. You can also pass an optional variable to control the number of columns displayed on large screens: `num_column:`. This theme already comes with the following example in the [Browse](/collection/) page. In order to use it, just replace the sample values with your own when editing the page:
 
 <code>{% raw %}
-{% include collection_gallery.html collection='qatar'
+{% include facet_gallery.html collection='qatar'
       facet_by='object_type|location' num_column=4 %}
 {% endraw %}</code>
 
-For the `facet_by` variable, specify one or more field names in a pipe-separated list.
+Notice that insteald of the normal `collection_gallery.html` we use a special `facet_gallery.html`.
 
-For the `num_column` variable, specify a number that is a divisor of 12 (i.e, 1, 2, 3, 4, or 6). This is the number of columns you want to have. The default is 2 columns.
+For the `facet_by:` variable, specify one or more field names in a pipe-separated list. For the `num_column` variable, specify a number that is a divisor of 12 (i.e, 1, 2, 3, 4, or 6). This is the number of columns you want to have. The default is 2 columns.
 
 ## ... create a subset gallery
 
-If you pass the `only` variable to the include instruction, the collection will be filtered to only items that have [a truthy value](https://shopify.github.io/liquid/filters/where/) for that field name. Consider the example we use in 'Exhibit with Subset Collection':
+_Facets_ also allows you to create galleries for subsets of your collections. A subset collection will only include items that have [a truthy value](https://shopify.github.io/liquid/filters/where/) for that specific "field value." Consider the example we use in '[Exhibit with Subset Collection](/exhibits/subset/)':
 
-<code>{% raw %}{% include collection_gallery.html collection='qatar' facet_by='object_type' only='portrait' num_column=4 %}{% endraw %}</code>
+<code>{% raw %}{% include subset_gallery.html collection='qatar' field='object_type' value='portrait' num_column=4 %}{% endraw %}</code>
 
-The gallery that results from this instruction, which you can see in our "[Exhibit with Subset Collection](/exhibits/subset/)," only shows portraits. Notice also that this gallery view does not have a faceting menu.
+The gallery that results from this instruction only shows portraits. This `include` command is slightly different than the one for faceted browsing. They both share a `collection:` and a `num_column:` variable. To use this `include`, though, you need to declare a `field:` variable or column from your data, and the `value:` you want to limit your subset to. Notice that this gallery view does not have a faceting menu.
 
 ## ... change our design
 
@@ -53,8 +53,10 @@ In theory, Facets should be able to be transferred to another Wax theme followin
    `<script type='text/javascript' async defer src='{% raw %}{{ "/assets/facets.js" | absolute_url }}{% endraw %}'></script>`\\
    \\
    The other alternative is to create a layout just for galleries and place the script there, like we do in the Facets theme.
-4. Make sure to call the right file in your `include` command. Notice we're calling `facet_gallery.html` and not `collection_gallery.html` as we would normally. Ex:\\
-   \\
-   `{% raw %}{% include facet_gallery.html collection='qatar' facet_by='object_type' only='portrait' num_column=4 %}{% endraw %}`
+4. Copy the "/\* FACET GALLERY \*/" section of our "[\_facets.scss](https://github.com/minicomp/wax-facets/blob/main/_sass/_facets.scss)" file at the end of your SASS or CSS file. We put this section at the end of our file for your convenience. If you are working with the original Wax theme, this snippet would go at the end of the "[/\_sass/\_wax.scss](https://github.com/minicomp/wax/blob/main/_sass/_wax.scss)" file.
 
-After these steps you might still want to tweak the final
+N.B. Make sure to call the right file in your `include` command. Notice we're calling `facet_gallery.html` and not `collection_gallery.html` as we would normally. Ex:\\
+\\
+`{% raw %}{% include facet_gallery.html collection='qatar' facet_by='object_type' only='portrait' num_column=4 %}{% endraw %}`
+
+After these steps you might still want to tweak the final results. For example, if you're transferring to the original Wax theme, you might want to tweak the font size and the line height on the card. We'll leave the final pixel-pushing to you.
