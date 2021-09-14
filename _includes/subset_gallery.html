@@ -1,6 +1,11 @@
 {% if include.value and include.field %}
   {% assign subset = site[include.collection] | where: include.field, include.value | sort: 'order' %}
 
+{% comment %}
+  For the "num_column" include variable, specify a number that is a divisor of
+  12 (i.e, 1, 2, 3, 4, or 6). The default is 2 columns.
+{% endcomment %}
+
 {% if include.num_column %}
   {% assign min_column_width = 12 | divided_by: include.num_column %}
 {% else %}
