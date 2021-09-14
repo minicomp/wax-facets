@@ -71,14 +71,20 @@ item pages (iiif + metadata)
 }
 
 .image-viewer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height:   80vh;
-  background-color: $light-background;
 }
 
 .gallery-thumb {
   height: 30vh;
   object-fit: cover;
   object-position: 50% 0%;
+}
+
+.item-view {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }
 
 .card-title {
@@ -89,14 +95,24 @@ p.card-text {
   color: $dark-text;
 }
 
+.item-metadata {
+  padding: 3rem;
+}
 
 .metadata-block {
   font-family: $body-font;
   max-width: 100%;
-  border: $medium-background 1px solid;
-  border-radius: 3px;
   padding: 1rem;
+  font-size: 1.2rem;
+
+  dt {
+    color: $muted-text;
+    font-size: 1rem;
+    font-family: $heading-font;
+  }
+
 }
+
 
 .facet-card {
   border: 0px;

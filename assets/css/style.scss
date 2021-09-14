@@ -24,8 +24,8 @@ sitemap: false
   src: url('{{ "/assets/fonts/OpenSans/open-sans-v18-latin-regular.eot" | absolute_url }}'); /* IE9 Compat Modes */
   src: local(''),
        // url('{{ "/assets/fonts/OpenSans/open-sans-v18-latin-regular.eot?#iefix" | absolute_url }}') format('embedded-opentype" | absolute_url }}'), /* IE6-IE8 */
-       url('{{ "/assets/fonts/OpenSans/open-sans-v18-latin-regular.woff2" | absolute_url }}') format('woff2'), /* Super Modern Browsers */ 
-       url('{{ "/assets/fonts/OpenSans/open-sans-v18-latin-regular.woff" | absolute_url }}') format('woff'), /* Modern Browsers */ 
+       url('{{ "/assets/fonts/OpenSans/open-sans-v18-latin-regular.woff2" | absolute_url }}') format('woff2'), /* Super Modern Browsers */
+       url('{{ "/assets/fonts/OpenSans/open-sans-v18-latin-regular.woff" | absolute_url }}') format('woff'), /* Modern Browsers */
        // url('{{ "/assets/fonts/OpenSans/open-sans-v18-latin-regular.ttf" | absolute_url }}') format('truetype" | absolute_url }}'), /* Safari, Android, iOS */
        // url('{{ "/assets/fonts/OpenSans/open-sans-v18-latin-regular.svg#OpenSans" | absolute_url }}') format('svg" | absolute_url }}'); /* Legacy iOS */
 }
@@ -45,6 +45,7 @@ $medium-background:#801515;
 $light-background:#F7E4EF;
 $dark-text:#444444;
 $code:#3C1553;
+$muted-text:#777777;
 
 /* Image Heights */
 
