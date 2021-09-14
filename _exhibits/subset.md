@@ -1,6 +1,6 @@
 ---
 layout: exhibit
-title: 'Exhibit with Subset Collection'
+title: "Exhibit with Subset Collection"
 author: Mihr 'Ali
 publish_date: 2018-11-15
 permalink: /exhibits/subset/
@@ -12,6 +12,6 @@ Odio ut enim blandit volutpat. Odio euismod lacinia at quis risus sed vulputate 
 
 ## Subset Collection
 
-Facilisi etiam dignissim diam quis enim lobortis scelerisque fermentum. Lobortis feugiat vivamus at augue eget arcu. In hac habitasse platea dictumst vestibulum rhoncus est pellentesque. 
+Facilisi etiam dignissim diam quis enim lobortis scelerisque fermentum. Lobortis feugiat vivamus at augue eget arcu. In hac habitasse platea dictumst vestibulum rhoncus est pellentesque.
 
-{% include collection_gallery.html collection='qatar' facet_by='object_type' only='portrait' num_column=4 %}
+{% include subset_gallery.html collection='qatar' field='object_type' value='portrait' num_column=4 %}

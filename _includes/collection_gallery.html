@@ -22,9 +22,7 @@
 
 {% assign collection = site[include.collection] %}
 
-{% if include.only and include.facet_by and include.num_column %}
-  {% assign subset = collection | where: include.facet_by, include.only | sort: 'order' %}
-{% endif %}
+
 
 {% if include.num_column %}
   {% assign min_column_width = 12 | divided_by: include.num_column %}
@@ -136,7 +134,7 @@
                 <a href="{{ item.url | absolute_url }}"><h3 class="card-title">{{ item.label }}</h3></a>
                 <!-- remove default text below or replace with a description from
                 the item record (e.g., {{item.description}}) -->
-                <p class="card-text small">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text small">This is a {{item.object_type}} from {{item.location}} dating to {{item._date}}.</p>
               </div>
             </div>
           </div>

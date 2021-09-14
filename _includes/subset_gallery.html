@@ -1,0 +1,33 @@
+{% if include.value and include.field %}
+  {% assign subset = site[include.collection] | where: include.field, include.value | sort: 'order' %}
+
+{% if include.num_column %}
+  {% assign min_column_width = 12 | divided_by: include.num_column %}
+{% else %}
+  {% assign min_column_width = 6 %}
+{% endif %}
+
+<div id='wax-gallery-{{ include.collection }}-container' class='wax-gallery-container full-width'>
+  <div class='wax-inline-container'>
+    <div id="wax-gallery-{{ include.collection }}" class="wax-gallery">
+      <div class="row">
+      {% for item in subset %}
+        <div class="gallery-item {{  newClasses | join: ' ' }} col-xl-{{min_column_width}} p-1">
+            <div class='card thumbnail-card'>
+              <img class='d-block card-img-top gallery-thumb w-100 mh-100' src='{{ item.thumbnail | absolute_url }}' alt="{{ item.label }}"/>
+              <div class="card-body">
+                <a href="{{ item.url | absolute_url }}"><h3 class="card-title">{{ item.label }}</h3></a>
+                <p class="card-text small">This is a {{item.object_type}} from {{item.location}} dating to {{item._date}}.</p>
+              </div>
+            </div>
+          </div>
+      {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% else %}
+<p style="color: red">Check your code. There might be a tag missing on your liquid <code>include</code> command.</p>
+{% endif %}
+
