@@ -81,7 +81,18 @@
         {% assign newClasses = '' | split: ' ' %}
 
           {% for fieldSet in facet_list %}
-          {% assign fieldSetArray = item[fieldSet] | slugify | split: ' '  %}
+            {% assign itemFieldValue = item[fieldSet]  %}
+            {% if itemFieldValue.first %}
+              {% assign fieldSetArray = '' | split: ' '  %}
+              {% for val in itemFieldValue %}
+                {% assign slugVal = val | slugify | split: ' ' %}
+                {% assign fieldSetArray = fieldSetArray | concat: slugVal %}
+              {% endfor %}
+
+            {% else %}
+             {% assign fieldSetArray = itemFieldValue | slugify | split: ' '  %}
+            {% endif %}
+
           {% assign newClasses = newClasses | concat: fieldSetArray %}
           {% endfor %}
 
