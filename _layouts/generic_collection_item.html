@@ -2,15 +2,27 @@
 layout: default
 ---
 
-{% comment %}
-  Update this page to use the same kind of Bootstrap card
-  as the gallery.
-{% endcomment %}
+{% assign links = site[page.collection] | sort: 'order' | map: 'url' %}
+{% for link in links %}
+  {% if link == page.url %}
+    {% if forloop.first %}
+      {% assign prevlink = links | last %}
+      {% assign nextlink = links[forloop.index] %}
+    {% elsif forloop.last %}
+      {% assign prevlink = prev %}
+      {% assign nextlink = links | first %}
+    {% else %}
+      {% assign prevlink = prev %}
+      {% assign nextlink = links[forloop.index] %}
+    {% endif %}
+  {% endif %}
+  {% assign prev = link %}
+{% endfor %}
 
 <div class="row">
   <div class="pagination mx-auto">
-    <div class='pagination-link' id='prevlink'></div>
-    <div class='pagination-link' id='nextlink'></div>
+    <div class='pagination-link' id='prevlink'><a href='{{ prevlink | absolute_url }}' >&#8249;</a></div>
+    <div class='pagination-link' id='nextlink'><a href='{{ nextlink | absolute_url }}' >&#8250;</a></div>
   </div>
 </div>
 <!--div class="row">
@@ -37,7 +49,6 @@ layout: default
              {% include simple_image_viewer.html full_image=page.full prevlink=prevlink nextlink=nextlink %}
           {% endif %}
         </div>
-    {% unless layout.pagination == false %}{% include item_pagination.html %}{% endunless %}
   {% endif %}
 
   <div class="card-body item-metadata">
