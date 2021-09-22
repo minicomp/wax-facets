@@ -168,7 +168,7 @@ main {
   min-height: calc(100vh - 120px);
 }
 
-/* 
+/*
 INLINE IMAGES
 */
 
@@ -190,8 +190,8 @@ INLINE IMAGES
   }
 }
 
-/* 
-WAX PARALLAX 
+/*
+WAX PARALLAX
 */
 
 .wax-parallax.inline-parallax {
@@ -241,8 +241,8 @@ WAX PARALLAX
   height: 1.2em;
 }
 
-/* 
-FACET GALLERY 
+/*
+FACET GALLERY
 */
 
 .image-viewer {
@@ -267,7 +267,7 @@ FACET GALLERY
 }
 
 p.card-text {
-  color: $dark-text;
+  color: #444444;
 }
 
 .facet-card {
@@ -289,4 +289,16 @@ p.card-text {
 legend {
   font-size: 1rem;
   display: inline;
+}
+
+.facets-chevron {
+
+}
+
+.facets-chevron-bottom:before {
+  content:'\25BC';
+}
+
+.facets-chevron-top:before {
+  content:'\25B2';
 }

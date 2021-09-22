@@ -45,7 +45,7 @@
       <div class="card-header facet-header">
       <a class="facet-bn" data-toggle="collapse" href="#{{item | slugify }}-collapse" role="button" aria-expanded="false" aria-controls="{{item | slugify }}-collapse">
         <legend>{{item | replace: "_", " "}}
-          <span class="oi oi-chevron-bottom float-right ml-2" aria-hidden="true"></span>
+          <span class="facets-chevron facets-chevron-bottom float-right ml-2" aria-hidden="true"></span>
         </legend>
       </a>
           {% assign options = collection | map: item | compact | uniq | sort_natural %}
@@ -127,7 +127,7 @@
           $('.facet-bn[aria-expanded]').click(function(event){
             $(this).parent().parent().toggleClass("active");
             // this selector might return multiple elements
-            $(this).children('legend').children('.oi').toggleClass("oi-chevron-bottom oi-chevron-top");
+            $(this).children('legend').children('.facets-chevron').toggleClass("facets-chevron-bottom facets-chevron-top");
           });
 
         });

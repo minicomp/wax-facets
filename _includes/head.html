@@ -3,7 +3,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-  <link href="{{ '/assets/iconic/font/css/open-iconic-bootstrap.css' | relative_url }}" rel="stylesheet">
 
   <!-- FAVICONS & APPS -->
   <link rel="apple-touch-icon" sizes="57x57" href="{{ '/assets/logo/apple-icon-57x57.png' | relative_url}}">
@@ -27,11 +26,11 @@
   {% if page.gallery %}
   <script type='text/javascript' defer src='{{ "/assets/js/facets.js" | absolute_url }}'></script>
   {% endif %}
-  
+
   <script type='text/javascript' defer src='{{ "/assets/bootstrap/bootstrap.min.js" | absolute_url }}'></script>
 
   <script type='text/javascript' defer src='{{ "/assets/js/jquery-3.5.1.min.js" | absolute_url }}'></script>
-  
+
   <noscript><p>Please enable JavaScript in your browser.</p></noscript>
 
   {%- if jekyll.environment == 'production' and site.google_analytics -%}
