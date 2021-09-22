@@ -290,3 +290,15 @@ legend {
   font-size: 1rem;
   display: inline;
 }
+
+.facets-chevron {
+
+}
+
+.facets-chevron-bottom:before {
+  content:'\25BC';
+}
+
+.facets-chevron-top:before {
+  content:'\25B2';
+}
