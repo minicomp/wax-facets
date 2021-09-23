@@ -67,7 +67,7 @@ ITEM PAGES (iiif + metadata)
     a {
       font-family: $heading-font;
       font-weight: bold;
-      font-size: 3em;
+      font-size: 2em;
       text-decoration: none !important;
     }
   }
@@ -292,13 +292,12 @@ legend {
 }
 
 .facets-chevron {
-
 }
 
 .facets-chevron-bottom:before {
-  content:'\25BC';
+  content: "\25BC";
 }
 
 .facets-chevron-top:before {
-  content:'\25B2';
+  content: "\25B2";
 }
