@@ -1,34 +1,17 @@
-{% comment %}
-
-  The collection_gallery include requires a "collection" variable and has the
-  following option variables: "only", "facet_by", and "num_column"
-
-  It can be added to a page using code like this:
-
-  {% include collection_gallery.html collection='qatar'
-      facet_by='object_type|location' num_column=4 %}
-
-  If a field name is passed to the include variable "only", the collection
-  will be filtered to items that have a truthy value for that field name.
-  (See  https://shopify.github.io/liquid/filters/where/)
-
-  For the "facet_by" include variable, specify one or more field names in a
-  pipe-separated list.
-
-  For the "num_column" include variable, specify a number that is a divisor of
-  12 (i.e, 1, 2, 3, 4, or 6). The default is 2 columns.
-
-{% endcomment %}
-
-{% if include.num_column %}
-  {% assign min_column_width = 12 | divided_by: include.num_column %}
-{% else %}
-  {% assign min_column_width = 6 %}
-{% endif %}
-
-{% if include.facet_by and include.collection  %}
-
-{% assign collection = site[include.collection] %}
+{% comment %} The collection_gallery include requires a "collection" variable
+and has the following option variables: "only", "facet_by", and "num_column" It
+can be added to a page using code like this: {% include collection_gallery.html
+collection='qatar' facet_by='object_type|location' num_column=4 %} If a field
+name is passed to the include variable "only", the collection will be filtered
+to items that have a truthy value for that field name. (See
+https://shopify.github.io/liquid/filters/where/) For the "facet_by" include
+variable, specify one or more field names in a pipe-separated list. For the
+"num_column" include variable, specify a number that is a divisor of 12 (i.e, 1,
+2, 3, 4, or 6). The default is 2 columns. {% endcomment %} {% if
+include.num_column %} {% assign min_column_width = 12 | divided_by:
+include.num_column %} {% else %} {% assign min_column_width = 6 %} {% endif %}
+{% if include.facet_by and include.collection %} {% assign collection =
+site[include.collection] %}
 
 <!--
   If there are one or more facet_by field names, build a form at the top of the
@@ -36,35 +19,50 @@
   all of the possible values of that field.
 -->
 
-
 {% assign facet_list = include.facet_by | split: "|" %}
 
-  <form class="row" id="facets">
-    {% for item in facet_list %}
-    <fieldset id="{{item | slugify}}-set" class="card m-1 facet-card">
-      <div class="card-header facet-header">
-      <a class="facet-bn" data-toggle="collapse" href="#{{item | slugify }}-collapse" role="button" aria-expanded="false" aria-controls="{{item | slugify }}-collapse">
-        <legend>{{item | replace: "_", " "}}
-          <span class="facets-chevron facets-chevron-bottom float-right ml-2" aria-hidden="true"></span>
+<form class="row" id="facets">
+  {% for item in facet_list %}
+  <fieldset id="{{item | slugify}}-set" class="card m-1 facet-card">
+    <div class="card-header facet-header">
+      <a
+        class="facet-bn"
+        data-toggle="collapse"
+        href="#{{item | slugify }}-collapse"
+        role="button"
+        aria-expanded="false"
+        aria-controls="{{item | slugify }}-collapse"
+      >
+        <legend>
+          {{item | replace: "_", " "}}
+          <span
+            class="facets-chevron facets-chevron-bottom float-right ml-2"
+            aria-hidden="true"
+          ></span>
         </legend>
       </a>
-          {% assign options = collection | map: item | compact | uniq | sort_natural %}
-      </div>
-      <div class="collapse" id="{{item | slugify }}-collapse">
-        <div class="card-body">
-
-          {% for option in options %}
-            <div class="facet-item">
-              <input id="{{option | slugify}}" class="{{item | slugify}}" type="checkbox" name="{{option}}" value="{{option}}">
-              <label for="{{option}}">{{option}}</label>
-            </div>
-          {% endfor %}
-
+      {% assign options = collection | map: item | compact | uniq | sort_natural
+      %}
+    </div>
+    <div class="collapse" id="{{item | slugify }}-collapse">
+      <div class="card-body">
+        {% for option in options %}
+        <div class="facet-item">
+          <input
+            id="{{option | slugify}}"
+            class="{{item | slugify}}"
+            type="checkbox"
+            name="{{option}}"
+            value="{{option}}"
+          />
+          <label for="{{option}}">{{option}}</label>
         </div>
+        {% endfor %}
       </div>
-    </fieldset>
-    {% endfor %}
-  </form>
+    </div>
+  </fieldset>
+  {% endfor %}
+</form>
 
 <!--
   Build the gallery by iterating through items in the collection. If there are
@@ -73,41 +71,44 @@
   that reacts to changes to the checkbox filters.
 -->
 
-<div id='wax-gallery-{{ include.collection }}-container' class='wax-gallery-container full-width'>
-  <div class='wax-inline-container'>
+<div
+  id="wax-gallery-{{ include.collection }}-container"
+  class="wax-gallery-container full-width"
+>
+  <div class="wax-inline-container">
     <div id="wax-gallery-{{ include.collection }}" class="wax-gallery">
       <div class="row">
-        {% for item in collection %}
-        {% assign newClasses = '' | split: ' ' %}
+        {% for item in collection %} {% assign newClasses = '' | split: ' ' %}
+        {% for fieldSet in facet_list %} {% assign itemFieldValue =
+        item[fieldSet] %} {% if itemFieldValue.first %} {% assign fieldSetArray
+        = '' | split: ' ' %} {% for val in itemFieldValue %} {% assign slugVal =
+        val | slugify | split: ' ' %} {% assign fieldSetArray = fieldSetArray |
+        concat: slugVal %} {% endfor %} {% else %} {% assign fieldSetArray =
+        itemFieldValue | slugify | split: ' ' %} {% endif %} {% assign
+        newClasses = newClasses | concat: fieldSetArray %} {% endfor %}
 
-          {% for fieldSet in facet_list %}
-            {% assign itemFieldValue = item[fieldSet]  %}
-            {% if itemFieldValue.first %}
-              {% assign fieldSetArray = '' | split: ' '  %}
-              {% for val in itemFieldValue %}
-                {% assign slugVal = val | slugify | split: ' ' %}
-                {% assign fieldSetArray = fieldSetArray | concat: slugVal %}
-              {% endfor %}
-
-            {% else %}
-             {% assign fieldSetArray = itemFieldValue | slugify | split: ' '  %}
-            {% endif %}
-
-          {% assign newClasses = newClasses | concat: fieldSetArray %}
-          {% endfor %}
-
-          <div class="gallery-item-facets {{  newClasses | join: ' ' }} col-xl-{{min_column_width}} p-1">
-
-            <div class='card thumbnail-card'>
-              <img class='d-block card-img-top gallery-thumb w-100 mh-100' src='{{ item.thumbnail | absolute_url }}' alt="{{ item.label }}"/>
-              <div class="card-body">
-                <a href="{{ item.url | absolute_url }}"><h3 class="card-title">{{ item.label }}</h3></a>
-                <!-- remove default text below or replace with a description from
+        <div
+          class="gallery-item-facets {{  newClasses | join: ' ' }} col-xl-{{min_column_width}} p-1"
+        >
+          <div class="card thumbnail-card">
+            <img
+              class="d-block card-img-top gallery-thumb w-100 mh-100"
+              src="{{ item.thumbnail | absolute_url }}"
+              alt="{{ item.label }}"
+            />
+            <div class="card-body">
+              <a href="{{ item.url | absolute_url }}"
+                ><h3 class="card-title">{{ item.label }}</h3></a
+              >
+              <!-- remove default text below or replace with a description from
                 the item record (e.g., {{item.description}}) -->
-                <p class="card-text small">This is a {{item.object_type}} from {{item.location}} dating to {{item._date}}.</p>
-              </div>
+              <p class="card-text small">
+                This is a {{item.object_type}} from {{item.location}} dating to
+                {{item._date}}.
+              </p>
             </div>
           </div>
+        </div>
         {% endfor %}
       </div>
     </div>
@@ -129,14 +130,15 @@
             // this selector might return multiple elements
             $(this).children('legend').children('.facets-chevron').toggleClass("facets-chevron-bottom facets-chevron-top");
           });
-
         });
     {% endif %}
   });
 </script>
 
 {% else %}
-  <p style="color: red">Check your code. There might be a tag missing on your liquid <code>include</code> command.</p>
-
+<p style="color: red">
+  Check your code. There might be a tag missing on your liquid
+  <code>include</code> command.
+</p>
 
 {% endif %}
