@@ -114,31 +114,19 @@ site[include.collection] %}
     </div>
   </div>
 </div>
-
+{% if include.facet_by %}
 <script type="text/javascript">
-  $( document ).ready(function() {
-
-    {% if include.facet_by %}
-        $(document).ready(function(){
-
-          console.log({{ facet_list | jsonify }}) // liquid array of one or more fields for facetting
-
-          // This JavaScript controls the expanding and contracting facet headers.
-          // Additional JS for this page in assets/js/facets.js
-          $('.facet-bn[aria-expanded]').click(function(event){
-            $(this).parent().parent().toggleClass("active");
-            // this selector might return multiple elements
-            $(this).children('legend').children('.facets-chevron').toggleClass("facets-chevron-bottom facets-chevron-top");
-          });
+      document.ready(function(){
+        console.log({{ facet_list | jsonify }})
+        document.querySelector('.facet-bn[aria-expanded]').click(function(event){
+          document.querySelector(this).parent().parent().classList.toggle("active");
+          document.querySelector(this).children('legend').children('.facets-chevron')classList.toggle("facets-chevron-bottom facets-chevron-top");
         });
-    {% endif %}
-  });
+      });
 </script>
-
 {% else %}
 <p style="color: red">
-  Check your code. There might be a tag missing on your liquid
+  Check your code. You didn't specify what to face by.
   <code>include</code> command.
 </p>
-
 {% endif %}
