@@ -10,7 +10,7 @@ source: https://www.wdl.org/en/item/10668/
 order: '11'
 layout: qatar_item
 collection: qatar
-thumbnail: img/derivatives/simple/obj12_05/thumbnail.jpg
+thumbnail: "/img/derivatives/iiif/images/obj12_00/full/250,/0/default.jpg"
 manifest: "/img/derivatives/iiif/obj12/manifest.json"
-full: img/derivatives/simple/obj12_05/fullwidth.jpg
+full: "/img/derivatives/iiif/images/obj12_00/full/1140,/0/default.jpg"
 ---
