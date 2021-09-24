@@ -67,7 +67,7 @@ ITEM PAGES (iiif + metadata)
     a {
       font-family: $heading-font;
       font-weight: bold;
-      font-size: 1em;
+      font-size: 1.2em;
       text-decoration: none !important;
     }
   }
@@ -300,4 +300,8 @@ legend {
 
 .facets-chevron-top:before {
   content: "\25B2";
+}
+
+.displayregion {
+  height: 132px;
 }
