@@ -1,3 +1,13 @@
+<!-- Facets uses a modified version of peterthomet's flat toolbar icons 
+  <https://github.com/peterthomet/openseadragon-flat-toolbar-icons>. If you
+want to change the color, we recommend you use imagemagick mogrify. First, separate
+the lights from the darks. Then run a variation of the following command for each 
+folder using the two different colors you want: 
+
+$ mogrify -format png +level-colors "#882D60", *.png
+
+-->
+
 <div id="osd" class="image-viewer"></div>
 <script async defer src="{{ '/assets/openseadragon/openseadragon.min.js' | absolute_url }}"></script>
 
