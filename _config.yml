@@ -1,58 +1,13 @@
 title: Facets
 subtitle: A Wax theme
 author:
-  name: GitHub User
+  name: Wax user
   email: your-email@domain.com
-description: > # this means to ignore newlines until "show_excerpts:"
+description:
   Write an awesome description for your new site here. You can edit this
   line in _config.yml. It will appear in your document head meta (for
   Google search results) and in your feed.xml site description.
-baseurl: '/wax-facets'
-
-show_excerpts: false # set to true to show excerpts on the homepage
-
-# Minima date format
-# refer to https://shopify.github.io/liquid/filters/date/ if you want to customize this
-minima:
-  date_format: "%b %-d, %Y"
-
-  # generate social links in footer
-  social_links:
-    twitter: jekyllrb
-    github:  jekyll
-    # devto: jekyll
-    # dribbble: jekyll
-    # facebook: jekyll
-    # flickr:   jekyll
-    # instagram: jekyll
-    # linkedin: jekyll
-    # pinterest: jekyll
-    # youtube: jekyll
-    # youtube_channel: UC8CXR0-3I70i1tfPg1PAE1g
-    # youtube_channel_name: CloudCannon
-    # telegram: jekyll
-    # googleplus: +jekyll
-    # microdotblog: jekyll
-    # keybase: jekyll
-
-    # Mastodon instances
-    # mastodon:
-    # - username: jekyll
-    #   instance: example.com
-    # - username: jekyll2
-    #   instance: example.com
-
-    # GitLab instances
-    # gitlab:
-    # - username: jekyll
-    #   instance: example.com
-    # - username: jekyll2
-    #   instance: example.com
-
-# If you want to link only specific pages in your header, uncomment
-# this and add the path to the pages in order as they should show up
-#header_pages:
-# - about.md
+baseurl: "/wax-facets"
 
 # --------------------------------------------------------------
 # COLLECTION SETTINGS
@@ -68,11 +23,11 @@ collections:
     output: true
   qatar: # name of collection
     output: true # makes sure pages are output as html files
-    layout: 'qatar_item' # the layout for the pages to use
+    layout: "qatar_item" # the layout for the pages to use
     metadata:
-      source: 'qatar.csv' # path to the metadata file within `_data`
+      source: "qatar.csv" # path to the metadata file within `_data`
     images:
-      source: 'raw_images/qatar' # path to the directory of images within `_data`
+      source: "raw_images/qatar" # path to the directory of images within `_data`
 
 # --------------------------------------------------------------
 # SEARCH INDEX SETTINGS
@@ -84,7 +39,7 @@ collections:
 
 search:
   main:
-    index: '/search/index.json' # file the index will get written to
+    index: "/search/index.json" # file the index will get written to
     collections:
       qatar:
         content: true # whether or not to index page content
@@ -104,19 +59,19 @@ search:
 # submenu via `sub`.
 
 menu:
-  - label: 'Exhibits'
+  - label: "Exhibits"
     sub:
-      - label: 'Parallax Images'
-        link: '/exhibits/parallax/'
-      - label: 'Image References'
-        link: '/exhibits/references/'
-      - label: 'Subset Collection'
-        link: '/exhibits/subset/'
-  - label: 'Browse'
-    link: '/collection/'
-  - label: 'Search'
-    link: '/search/'
-  - label: 'How To'
-    link: '/learning/'
-  - label: 'About'
-    link: '/about/'
+      - label: "Parallax Images"
+        link: "/exhibits/parallax/"
+      - label: "Image References"
+        link: "/exhibits/references/"
+      - label: "Subset Collection"
+        link: "/exhibits/subset/"
+  - label: "Browse"
+    link: "/collection/"
+  - label: "Search"
+    link: "/search/"
+  - label: "How To"
+    link: "/learning/"
+  - label: "About"
+    link: "/about/"
