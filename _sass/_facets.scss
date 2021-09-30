@@ -1,8 +1,33 @@
-// Facets
+/* 
+########    ###     ######  ######## ########  ######  
+##         ## ##   ##    ## ##          ##    ##    ## 
+##        ##   ##  ##       ##          ##    ##       
+######   ##     ## ##       ######      ##     ######  
+##       ######### ##       ##          ##          ## 
+##       ##     ## ##    ## ##          ##    ##    ## 
+##       ##     ##  ######  ########    ##     ######                                             
+*/
 
 // Import Bootstrap
 
 @import "bootstrap";
+
+// General
+
+* {
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: $body-font;
+}
+
+main {
+  min-height: calc(100vh - 120px);
+  padding: 2rem;
+}
 
 h1,
 h2,
@@ -13,29 +38,8 @@ h6 {
   font-family: $heading-font;
 }
 
-body {
-  font-family: $body-font;
-}
-
-main {
-  padding: 2rem;
-}
-
 .subtitle {
   padding-bottom: 0.3125rem;
-}
-
-.banner {
-  background-color: $dark-background;
-  color: $light-text;
-}
-
-.banner a {
-  color: $light-link;
-}
-
-.banner a:hover {
-  color: $light-link-hover;
 }
 
 a.action-button {
@@ -57,9 +61,22 @@ a.dropdown-item {
   }
 }
 
-/*
-ITEM PAGES (iiif + metadata)
-*/
+// Banners
+
+.banner {
+  background-color: $dark-background;
+  color: $light-text;
+}
+
+.banner a {
+  color: $light-link;
+}
+
+.banner a:hover {
+  color: $light-link-hover;
+}
+
+// Item Pages (iiif + metadata)
 
 .pagination {
   .pagination-link {
@@ -90,16 +107,13 @@ ITEM PAGES (iiif + metadata)
   }
 }
 
-/*
-SEARCH BOX
-*/
+// Search Box
 
 .search-block {
-  //margin: $more-margin 0 $more-margin 0;
   #search {
     border-style: groove;
     border-width: 2px;
-    //margin-bottom: $more-margin;
+
     &:focus {
       box-shadow: none;
       border-color: $medium-background;
@@ -143,15 +157,6 @@ SEARCH BOX
 
 // Sticky footer
 
-* {
-  margin: 0;
-}
-
-html,
-body {
-  height: 100%;
-}
-
 #wrapper {
   min-height: 100%;
   height: auto !important;
@@ -164,13 +169,7 @@ footer {
   padding: 0.5rem;
 }
 
-main {
-  min-height: calc(100vh - 120px);
-}
-
-/*
-INLINE IMAGES
-*/
+// Inline Images
 
 .inline-image-reference {
   background-color: $light-background;
@@ -190,17 +189,12 @@ INLINE IMAGES
   }
 }
 
-/*
-WAX PARALLAX
-*/
+// Wax Parallax
 
 .wax-parallax.inline-parallax {
   margin-top: 2rem;
   margin-bottom: 2rem;
   padding: 0px;
-}
-
-.wax-parallax.top-banner {
 }
 
 .wax-parallax {
@@ -242,7 +236,8 @@ WAX PARALLAX
 }
 
 /*
-FACET GALLERY
+    FACET GALLERY
+    (Copy the CSS below if you're importing into your own theme)
 */
 
 .image-viewer {
@@ -289,9 +284,6 @@ p.card-text {
 legend {
   font-size: 1rem;
   display: inline;
-}
-
-.facets-chevron {
 }
 
 .facets-chevron-bottom:before {

@@ -24,15 +24,12 @@ layout: default
     <div class='pagination-link' id='prevlink'><a href='{{ prevlink | absolute_url }}' >&#9668;</a></div>
     <div class='pagination-link' id='nextlink'><a href='{{ nextlink | absolute_url }}' >&#9658;</a></div>  </div>
 </div>
-<!--div class="row">
-  <h1 alt="{{ page.label }}" class='item-label'>{{ page.label }}</h1>
-</div-->
+
 
 <div class='row card thumbnail-card'>
 
-  {% comment %}
-    The block below controls the image viewer
-  {% endcomment %}
+
+<!-- The block below controls the image viewer -->
 
   {% if page.image_viewer %}
     {% assign viewer = page.image_viewer %}
@@ -51,12 +48,10 @@ layout: default
   {% endif %}
 
   <div class="card-body item-metadata">
-    {% comment %}
-      The block below controls the item metadata table
-    {% endcomment %}
+
+<!-- The block below controls the item metadata table -->
 
     <h1 alt="{{ page.label }}" class='item-label'>{{ page.label }}</h1>
-
     <div class="row">
       {% if layout.meta.size %}
         {% assign metadata = layout.meta %}

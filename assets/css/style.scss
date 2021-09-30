@@ -5,47 +5,53 @@ sitemap: false
 
 /* open-sans-300 - latin */
 @font-face {
-  font-family: 'Open Sans Light';
+  font-family: "Open Sans Light";
   font-style: normal;
   font-weight: 300;
   src: url('{{ "/assets/fonts/OpenSans/open-sans-v18-latin-300.eot" | absolute_url }}'); /* IE9 Compat Modes */
-  src: local(''),
-       // url('{{ "/assets/fonts/OpenSans/open-sans-v18-latin-300.eot?#iefix" | absolute_url }}') format('embedded-opentype" | absolute_url }}'), /* IE6-IE8 */
-       url('{{ "/assets/fonts/OpenSans/open-sans-v18-latin-300.woff2" | absolute_url }}') format('woff2'), /* Super Modern Browsers */
-       url('{{ "/assets/fonts/OpenSans/open-sans-v18-latin-300.woff" | absolute_url }}') format('woff'), /* Modern Browsers */
-       // url('{{ "/assets/fonts/OpenSans/open-sans-v18-latin-300.ttf" | absolute_url }}') format('truetype" | absolute_url }}'), /* Safari, Android, iOS */
-       // url('{{ "/assets/fonts/OpenSans/open-sans-v18-latin-300.svg#OpenSans" | absolute_url }}') format('svg" | absolute_url }}'); /* Legacy iOS */
+  src: local(""),
+    // url('{{ "/assets/fonts/OpenSans/open-sans-v18-latin-300.eot?#iefix" | absolute_url }}') format('embedded-opentype" | absolute_url }}'), /* IE6-IE8 */
+    url('{{ "/assets/fonts/OpenSans/open-sans-v18-latin-300.woff2" | absolute_url }}')
+      format("woff2"),
+    /* Super Modern Browsers */
+      url('{{ "/assets/fonts/OpenSans/open-sans-v18-latin-300.woff" | absolute_url }}')
+      format("woff"); /* Modern Browsers */
+  // url('{{ "/assets/fonts/OpenSans/open-sans-v18-latin-300.ttf" | absolute_url }}') format('truetype" | absolute_url }}'), /* Safari, Android, iOS */
+  // url('{{ "/assets/fonts/OpenSans/open-sans-v18-latin-300.svg#OpenSans" | absolute_url }}') format('svg" | absolute_url }}'); /* Legacy iOS */
 }
 /* open-sans-regular - latin */
 @font-face {
-  font-family: 'Open Sans Regular';
+  font-family: "Open Sans Regular";
   font-style: normal;
   font-weight: 400;
   src: url('{{ "/assets/fonts/OpenSans/open-sans-v18-latin-regular.eot" | absolute_url }}'); /* IE9 Compat Modes */
-  src: local(''),
-       // url('{{ "/assets/fonts/OpenSans/open-sans-v18-latin-regular.eot?#iefix" | absolute_url }}') format('embedded-opentype" | absolute_url }}'), /* IE6-IE8 */
-       url('{{ "/assets/fonts/OpenSans/open-sans-v18-latin-regular.woff2" | absolute_url }}') format('woff2'), /* Super Modern Browsers */
-       url('{{ "/assets/fonts/OpenSans/open-sans-v18-latin-regular.woff" | absolute_url }}') format('woff'), /* Modern Browsers */
-       // url('{{ "/assets/fonts/OpenSans/open-sans-v18-latin-regular.ttf" | absolute_url }}') format('truetype" | absolute_url }}'), /* Safari, Android, iOS */
-       // url('{{ "/assets/fonts/OpenSans/open-sans-v18-latin-regular.svg#OpenSans" | absolute_url }}') format('svg" | absolute_url }}'); /* Legacy iOS */
+  src: local(""),
+    // url('{{ "/assets/fonts/OpenSans/open-sans-v18-latin-regular.eot?#iefix" | absolute_url }}') format('embedded-opentype" | absolute_url }}'), /* IE6-IE8 */
+    url('{{ "/assets/fonts/OpenSans/open-sans-v18-latin-regular.woff2" | absolute_url }}')
+      format("woff2"),
+    /* Super Modern Browsers */
+      url('{{ "/assets/fonts/OpenSans/open-sans-v18-latin-regular.woff" | absolute_url }}')
+      format("woff"); /* Modern Browsers */
+  // url('{{ "/assets/fonts/OpenSans/open-sans-v18-latin-regular.ttf" | absolute_url }}') format('truetype" | absolute_url }}'), /* Safari, Android, iOS */
+  // url('{{ "/assets/fonts/OpenSans/open-sans-v18-latin-regular.svg#OpenSans" | absolute_url }}') format('svg" | absolute_url }}'); /* Legacy iOS */
 }
 
 /* text */
 
-$body-font:       'Open Sans Regular', 'Verdana', 'sans-serif';
-$heading-font:    'Open Sans Light', 'Verdana', 'sans-serif';
+$body-font: "Open Sans Regular", "Verdana", "sans-serif";
+$heading-font: "Open Sans Light", "Verdana", "sans-serif";
 
 /* Colors */
 
-$dark-background:#440027;
-$light-text:#D49A6A;
-$light-link:#FFD1AA;
-$light-link-hover:#CD88AF;
-$medium-background:#801515;
-$light-background:#F7E4EF;
-$dark-text:#444444;
-$code:#3C1553;
-$muted-text:#777777;
+$dark-background: #440027;
+$light-text: #d49a6a;
+$light-link: #ffd1aa;
+$light-link-hover: #cd88af;
+$medium-background: #801515;
+$light-background: #f7e4ef;
+$dark-text: #444444;
+$code: #3c1553;
+$muted-text: #777777;
 
 /* Image Heights */
 
@@ -56,6 +62,4 @@ $parallax-height: 350px;
 $viewer-height: 100%;
 $max-width: 100%;
 
-
-@import
-	"facets";
+@import "facets";
