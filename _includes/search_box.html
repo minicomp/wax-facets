@@ -23,10 +23,8 @@
 <script type='text/javascript'>
   var fields    = {{ fields | jsonify }};
   var indexFile = "{{ index }}";
-  //var url       = "{{ '' | absolute_url }}";
   var url       = "{{ '/' | absolute_url }}";
   console.log(url);
-
   $(document).ready(function() {
     startSearchUI(fields, indexFile, url);
   });

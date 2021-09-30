@@ -7,9 +7,7 @@
       {% assign value = item.value %}
     {% endif %}
 
-    {% comment %}
-    Only display non-empty values
-    {% endcomment %}
+<!-- Only display non-empty values -->
     {% if value | strip != '' %}
       {% if item.type == 'link' %}
         {% if key == 'manifest' %}

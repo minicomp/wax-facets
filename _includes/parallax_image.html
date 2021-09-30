@@ -8,7 +8,6 @@
 {%- capture style -%}
   background-image: url('{{ image | absolute_url }}');
   background-position: 0% {{ include.y | default: '15%' }};
-
   {% if include.height %}
   height: {{ include.height }} !important;
   {% endif %}
@@ -16,7 +15,6 @@
 
 <div class='wax-parallax full-width container-fluid {% if page.banner %}top-banner{% else %}inline-parallax{% endif %}'>
   <div class='parallax-image' style="{{ style | strip }}"></div>
-
   {% if item.label %}
   <div class='parallax-caption'>
     <div class='wax-inline-container'>

@@ -10,7 +10,6 @@ $ mogrify -format png +level-colors "#882D60", *.png
 
 <div id="osd" class="image-viewer"></div>
 <script async defer src="{{ '/assets/openseadragon/openseadragon.min.js' | absolute_url }}"></script>
-
 <script>
   $(document).ready(function () {
     var manifestUrl = "{{ include.manifest | absolute_url }}";
