@@ -38,8 +38,10 @@ h6 {
   font-family: $heading-font;
 }
 
-.subtitle {
-  padding-bottom: 0.3125rem;
+// Links
+
+a {
+  color: $medium-background;
 }
 
 a:hover {
@@ -58,14 +60,6 @@ a.action-button:hover {
   color: $light-link-hover;
 }
 
-a,
-a.dropdown-item {
-  color: $medium-background;
-  &:hover {
-    color: $dark-background;
-  }
-}
-
 // Banner
 
 .banner {
@@ -78,6 +72,10 @@ a.dropdown-item {
 
 .navbar-brand {
   font-size: 1.4rem;
+}
+
+.subtitle {
+  padding-bottom: 0.3125rem;
 }
 
 .banner a {
