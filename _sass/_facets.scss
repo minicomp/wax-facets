@@ -51,13 +51,13 @@ a:hover {
 
 a.action-button {
   background-color: $medium-background;
-  color: $light-link;
+  color: $light-link-hover;
   margin: 1rem;
 }
 
 a.action-button:hover {
   background-color: $dark-background;
-  color: $light-link-hover;
+  color: $light-link;
 }
 
 // Banner
