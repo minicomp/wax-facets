@@ -42,6 +42,11 @@ h6 {
   padding-bottom: 0.3125rem;
 }
 
+a:hover {
+  color: $light-text;
+  text-decoration: none;
+}
+
 a.action-button {
   background-color: $medium-background;
   color: $light-link;
@@ -61,12 +66,7 @@ a.dropdown-item {
   }
 }
 
-a:hover {
-  color: $light-text;
-  text-decoration: none;
-}
-
-// Banners
+// Banner
 
 .banner {
   background-color: $dark-background;
@@ -79,6 +79,14 @@ a:hover {
 
 .banner a:hover {
   color: $light-link-hover;
+}
+
+.banner .dropdown-item {
+  color: $dark-background;
+}
+
+.banner .dropdown-item:hover {
+  color: $light-link;
 }
 
 // Item Pages (iiif + metadata)
