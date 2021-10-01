@@ -1,6 +1,23 @@
-The MIT License (MIT)
+Facets is offered as is with an MIT License (MIT)
 
-Copyright (c) 2016-present Parker Moore and the minima contributors
+Facets is built on 2 other layers of MIT licenses, one for Wax 
+and the other for the Jektll Minima theme. Both are listed below our own
+MIT License below. 
+
+## Facets 
+
+Copyright (c) 2021–present Alex Gil and Angela Zoss
+
+## Wax
+
+Copyright (c) 2018–present Marii Nyröp
+
+## Jekyll Minima 
+
+Copyright (c) 2016–present Parker Moore and the minima contributors
+
+
+# MIT License
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
