@@ -23,7 +23,7 @@ Next, we tell _Facets_ what collection gallery to insert and what columns to fac
 
 `{% raw %}{% include facet_gallery.html collection='qatar' facet_by='object_type|location' num_column=4 %}{% endraw %}`
 
-Notice that insteald of the normal `collection_gallery.html` we use a special `facet_gallery.html`.
+Notice that instead of the normal `collection_gallery.html` we use a special `facet_gallery.html`.
 
 For the `facet_by:` variable, specify one or more field names in a pipe-separated list. For the `num_column` variable, specify a number that is a divisor of 12 (i.e, 1, 2, 3, 4, or 6). This is the number of columns you want to have. The default is 2 columns.
 
