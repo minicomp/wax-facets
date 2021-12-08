@@ -85,31 +85,7 @@
 
 {% comment %} :::: END FACETS :::: {% endcomment%}
 
-
-
-
-
-
-
-
-    
-
-
-
-    
-
-
-      {% comment%}Handle Language Category {%
-      endcomment %}
-      {% if item == "language" %}
-      {% comment%}Populate FieldSet with
-      unique languages{% endcomment %}
-      
-    
-    <!-- Build the gallery by iterating through items in the collection. If there are
-              facets specified, fine the items' values for those fields and add them as
-              classes to the gallery-item object. The classes are used by JavaScript
-              that reacts to changes to the checkbox filters. -->
+<!-- THE GALLERY -->
     
     <div
       class="wax-gallery-container full-width"
@@ -118,46 +94,28 @@
       <div class="wax-inline-container">
         <div class="wax-gallery" id="wax-gallery-{{ include.value | slugify }}">
           <div class="row">
-            {% for item in collection %}
+            
+          {% for item in collection %}
             {% assign newClasses = '' | split: ' ' %}
-            {% for fieldSet in facet_list %}
-            {% comment %}Handle language by stripping
-            commas and removing slugify. Remember to allow for multiple multiple-value
-            variables. Those variables should be set up above{% endcomment %}
-            {% if fieldSet == "language"             %}
-            {% assign itemFieldValue = item[fieldSet] | replace: ",", " " %}
-            {%
-            if itemFieldValue.first %}
-            {% assign fieldSetArray = '' | split: ' ' %}
-            {% for val in itemFieldValue %}
-            {% assign slugVal = val | split: ' ' %}
-            {% assign fieldSetArray = fieldSetArray | concat: slugVal %}
-            {% endfor
-            %}
-            {% else %}
-            {% assign fieldSetArray = itemFieldValue | split: ' ' %}
+
+            {% if include.facet_by %}
+              {% assign facet_list = include.facet_by | split: "|" %}
+              {% for fieldSet in facet_list %}
+                {% assign itemFieldValue = item[fieldSet] | replace: separator, " " | remove: "*" %}
+                {% if itemFieldValue.first %}
+                  {% assign fieldSetArray = '' | split: ' ' %}
+                  {% for val in itemFieldValue %}
+                    {% assign slugVal = val | slugify | split: ' ' %}
+                    {% assign fieldSetArray = fieldSetArray | concat: slugVal %}
+                  {% endfor %}
+                {% else %}
+                  {% assign fieldSetArray = itemFieldValue | slugify | split: ' ' %}
+                {% endif %}
+                {% assign newClasses = newClasses | concat: fieldSetArray %}
+
+              {% endfor %}
             {% endif %}
-            {% assign newClasses = newClasses | concat: fieldSetArray %}
-            {% else %}
-            {% assign itemFieldValue = item[fieldSet] %}
-            {% if
-            itemFieldValue.first %}
-            {% assign fieldSetArray = '' | split: ' ' %}
-            {%
-            for val in itemFieldValue %}
-            {% assign slugVal = val | slugify | split:
-            ' ' %}
-            {% assign fieldSetArray = fieldSetArray | concat: slugVal %}
-            {%
-            endfor %}
-            {% else %}
-            {% assign fieldSetArray = itemFieldValue | slugify
-            | split: ' ' %}
-            {% endif %}
-            {% assign newClasses = newClasses | concat:
-            fieldSetArray %}
-            {% endif %}
-            {% endfor %}
+
             <div class="gallery-item-facets {{  newClasses | join: ' ' }}">
               <a href="{{ item.url | absolute_url }}">
                 <div class="hovereffect">
@@ -174,11 +132,12 @@
                 </div>
               </a>
             </div>
-            {% endfor %}
+          {% endfor %}
           </div>
         </div>
       </div>
     </div>
+    
     <script type="text/javascript">
       $(document).ready(function () {
           console.log({{ facet_list | jsonify }})
