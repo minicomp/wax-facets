@@ -1,4 +1,8 @@
-{% assign min_column_width = 1 %}
+{% if include.num_column %} 
+  {% assign min_column_width = 12 | divided_by: include.num_column %} 
+{% else %} 
+  {% assign min_column_width = 6 %} 
+{% endif %}
 
 {% comment %}- SUBSET PARSING -{% endcomment%}
 
@@ -11,14 +15,12 @@
 
 {% comment %}- END SUBSET PARSING -{% endcomment%}
 
-
-
 {% comment %} :::: FACETS :::: {% endcomment%}
 
 {% if include.facet_by %}
   <form class="row" id="facets">
     {% assign facet_list = include.facet_by | split: "|" %}
-    {% for each facet in facet_list %}
+    {% for facet in facet_list %}
       {% comment %}- MULTI-VALUE FACETS -{% endcomment%}
       {% if facet contains "*" %}
         {% assign facet = facet | remove: "*" %}
@@ -87,58 +89,55 @@
 
 <!-- THE GALLERY -->
     
-    <div
-      class="wax-gallery-container full-width"
-      id="wax-gallery-{{ include.value | slugify }}-container"
-    >
-      <div class="wax-inline-container">
-        <div class="wax-gallery" id="wax-gallery-{{ include.value | slugify }}">
-          <div class="row">
-            
-          {% for item in collection %}
-            {% assign newClasses = '' | split: ' ' %}
-
-            {% if include.facet_by %}
-              {% assign facet_list = include.facet_by | split: "|" %}
-              {% for fieldSet in facet_list %}
-                {% assign itemFieldValue = item[fieldSet] | replace: separator, " " | remove: "*" %}
-                {% if itemFieldValue.first %}
-                  {% assign fieldSetArray = '' | split: ' ' %}
-                  {% for val in itemFieldValue %}
-                    {% assign slugVal = val | slugify | split: ' ' %}
-                    {% assign fieldSetArray = fieldSetArray | concat: slugVal %}
-                  {% endfor %}
-                {% else %}
-                  {% assign fieldSetArray = itemFieldValue | slugify | split: ' ' %}
-                {% endif %}
-                {% assign newClasses = newClasses | concat: fieldSetArray %}
-
-              {% endfor %}
-            {% endif %}
-
-            <div class="gallery-item-facets {{  newClasses | join: ' ' }}">
-              <a href="{{ item.url | absolute_url }}">
-                <div class="hovereffect">
-                  {% capture img_link %}{{ item.full | absolute_url }}{% endcapture
-                  %}
-                  <img
-                    class="img-responsive gallery-wide-thumb"
-                    loading="lazy"
-                    src="{{ img_link }}"
-                  />
-                  <div class="overlay">
-                    <p class="info">{{ item.label }}</p>
-                  </div>
-                </div>
-              </a>
+<div class="wax-gallery-container full-width" id="wax-gallery-{{ include.value | slugify }}-container" >
+  <div class="wax-inline-container">
+      <div class="wax-gallery" id="wax-gallery-{{ include.value | slugify }}">
+        <div class="row">            
+        {% for item in collection %}
+          {% assign newClasses = '' | split: ' ' %}
+          {% if include.facet_by %}
+            {% assign facet_list = include.facet_by | split: "|" %}
+            {% for fieldSet in facet_list %}
+              {% assign itemFieldValue = item[fieldSet] | replace: separator, " " | remove: "*" %}
+              {% if itemFieldValue.first %}
+                {% assign fieldSetArray = '' | split: ' ' %}
+                {% for val in itemFieldValue %}
+                  {% assign slugVal = val | slugify | split: ' ' %}
+                  {% assign fieldSetArray = fieldSetArray | concat: slugVal %}
+                {% endfor %}
+              {% else %}
+                {% assign fieldSetArray = itemFieldValue | slugify | split: ' ' %}
+              {% endif %}
+              {% assign newClasses = newClasses | concat: fieldSetArray %}
+            {% endfor %}
+          {% endif %}
+          <div class="gallery-item-facets {{  newClasses | join: ' ' }}  col-xl-{{min_column_width}} p-1">
+            <div class="card thumbnail-card">
+              <img
+                class="d-block card-img-top gallery-thumb w-100 mh-100"
+                src="{{ item.thumbnail | absolute_url }}"
+                alt="{{ item.label }}"
+              />
+              <div class="card-body">
+                <a href="{{ item.url | absolute_url }}"
+                  ><h3 class="card-title">{{ item.label }}</h3></a
+                >
+                <!-- remove default text below or replace with a description from
+                  the item record (e.g., {{item.description}}) -->
+                <p class="card-text small">
+                  This is a {{item.object_type}} from {{item.location}} dating to
+                  {{item._date}}.
+                </p>
+              </div>
             </div>
-          {% endfor %}
           </div>
+        {% endfor %}
         </div>
       </div>
-    </div>
+  </div>
+</div>
     
-    <script type="text/javascript">
+<script type="text/javascript">
       $(document).ready(function () {
           console.log({{ facet_list | jsonify }})
           // liquid array of one or more fields for facetting
@@ -156,16 +155,6 @@
                   .toggleClass("facets-chevron-bottom facets-chevron-top");
           });
       });
-    </script>
+</script>
     
-    {% else %}
-    <div class="error-message">
-      <p style="color: red">
-        Check your code. You didn't specify what to face by.
-        <code>include</code>
-        command.
-      </p>
-    </div>
-    
-    {% endif %}
     
