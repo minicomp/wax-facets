@@ -1,0 +1,212 @@
+{% assign min_column_width = 1 %}
+
+{% comment %}- SUBSET PARSING -{% endcomment%}
+
+{% if include.field and include.value %}  
+  {% assign collection = site[include.collection] | where: include.field,
+  include.value | sort: 'order' %}
+{% else %}
+  {% assign collection = site[include.collection] %}
+{% endif %}
+
+{% comment %}- END SUBSET PARSING -{% endcomment%}
+
+
+
+{% comment %} :::: FACETS :::: {% endcomment%}
+
+{% if include.facet_by %}
+  <form class="row" id="facets">
+    {% assign facet_list = include.facet_by | split: "|" %}
+    {% for each facet in facet_list %}
+      {% comment %}- MULTI-VALUE FACETS -{% endcomment%}
+      {% if facet contains "*" %}
+        {% assign facet = facet | remove: "*" %}
+        {% assign original_options = collection | map: field_name | compact | uniq | sort_natural %}
+        
+        {% comment%}Create Temporary Array of Individuated Facet Values{% endcomment %}
+        {% assign temp_facet_values = "" %}
+        {% assign separator = "|" %}
+        {% for option in original_options %}
+          {% if option contains separator %}
+            {% assign split_values = {{option}} | split: separator %}
+            {% for sv in split_values %}
+              {% capture temp_facet_values %}{{ temp_facet_values | append: sv}}|{% endcapture %}
+            {% endfor %}
+          {% else %}
+            {% capture temp_facet_values %}{{ temp_facet_values | append: option}}|{% endcapture %}
+          {% endif %}
+        {% endfor %}
+        {% assign facet_values = temp_facet_values | split: "|" | uniq | sort_natural %}
+      {% else %}
+        {% assign facet_values = collection | map: facet | compact | uniq | sort_natural %}
+      {% endif %}
+        
+        <fieldset id="facet-set" class="card ml-2 facet-card">
+          <div class="facet-header">
+            <a
+              class="facet-bn"
+              data-toggle="collapse"
+              href="#{{ facet | slugify }}-collapse"
+              role="button"
+              aria-expanded="false"
+              aria-controls="{{ facet | slugify }}-collapse"
+            >
+              <legend>{{ facet | replace: "_", " "}}
+                <span
+                  aria-hidden="true"
+                  class="facets-chevron facets-chevron-bottom float-right ml-2"
+                ></span>
+              </legend>
+            </a>
+          </div>
+          <div class="collapse" id="{{ facet | slugify }}-collapse">
+            {% comment %}Create Card with facet values{% endcomment %}
+            <div class="card-body">
+              {% for value in facet_values %}
+              <div class="facet-item">
+                <input
+                  id="{{value | slugify}}"
+                  class="{{facet | slugify}}"
+                  type="checkbox"
+                  name="{{value}}"
+                  value="{{value}}"
+                />
+                <label for="{{value}}">{{value}}</label>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </fieldset>
+    {% endfor %}  
+  </form>
+{% else %}
+{% endif %}
+
+{% comment %} :::: END FACETS :::: {% endcomment%}
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+      {% comment%}Handle Language Category {%
+      endcomment %}
+      {% if item == "language" %}
+      {% comment%}Populate FieldSet with
+      unique languages{% endcomment %}
+      
+    
+    <!-- Build the gallery by iterating through items in the collection. If there are
+              facets specified, fine the items' values for those fields and add them as
+              classes to the gallery-item object. The classes are used by JavaScript
+              that reacts to changes to the checkbox filters. -->
+    
+    <div
+      class="wax-gallery-container full-width"
+      id="wax-gallery-{{ include.value | slugify }}-container"
+    >
+      <div class="wax-inline-container">
+        <div class="wax-gallery" id="wax-gallery-{{ include.value | slugify }}">
+          <div class="row">
+            {% for item in collection %}
+            {% assign newClasses = '' | split: ' ' %}
+            {% for fieldSet in facet_list %}
+            {% comment %}Handle language by stripping
+            commas and removing slugify. Remember to allow for multiple multiple-value
+            variables. Those variables should be set up above{% endcomment %}
+            {% if fieldSet == "language"             %}
+            {% assign itemFieldValue = item[fieldSet] | replace: ",", " " %}
+            {%
+            if itemFieldValue.first %}
+            {% assign fieldSetArray = '' | split: ' ' %}
+            {% for val in itemFieldValue %}
+            {% assign slugVal = val | split: ' ' %}
+            {% assign fieldSetArray = fieldSetArray | concat: slugVal %}
+            {% endfor
+            %}
+            {% else %}
+            {% assign fieldSetArray = itemFieldValue | split: ' ' %}
+            {% endif %}
+            {% assign newClasses = newClasses | concat: fieldSetArray %}
+            {% else %}
+            {% assign itemFieldValue = item[fieldSet] %}
+            {% if
+            itemFieldValue.first %}
+            {% assign fieldSetArray = '' | split: ' ' %}
+            {%
+            for val in itemFieldValue %}
+            {% assign slugVal = val | slugify | split:
+            ' ' %}
+            {% assign fieldSetArray = fieldSetArray | concat: slugVal %}
+            {%
+            endfor %}
+            {% else %}
+            {% assign fieldSetArray = itemFieldValue | slugify
+            | split: ' ' %}
+            {% endif %}
+            {% assign newClasses = newClasses | concat:
+            fieldSetArray %}
+            {% endif %}
+            {% endfor %}
+            <div class="gallery-item-facets {{  newClasses | join: ' ' }}">
+              <a href="{{ item.url | absolute_url }}">
+                <div class="hovereffect">
+                  {% capture img_link %}{{ item.full | absolute_url }}{% endcapture
+                  %}
+                  <img
+                    class="img-responsive gallery-wide-thumb"
+                    loading="lazy"
+                    src="{{ img_link }}"
+                  />
+                  <div class="overlay">
+                    <p class="info">{{ item.label }}</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      $(document).ready(function () {
+          console.log({{ facet_list | jsonify }})
+          // liquid array of one or more fields for facetting
+          // This JavaScript controls the expanding and contracting facet headers.
+          // Additional JS for this page in assets/js/facets.js
+          $(".facet-bn[aria-expanded]").click(function (event) {
+              $(this)
+                  .parent()
+                  .parent()
+                  .toggleClass("active");
+              // this selector might return multiple elements
+              $(this)
+                  .children("legend")
+                  .children(".facets-chevron")
+                  .toggleClass("facets-chevron-bottom facets-chevron-top");
+          });
+      });
+    </script>
+    
+    {% else %}
+    <div class="error-message">
+      <p style="color: red">
+        Check your code. You didn't specify what to face by.
+        <code>include</code>
+        command.
+      </p>
+    </div>
+    
+    {% endif %}
+    
