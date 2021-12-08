@@ -44,8 +44,8 @@
         {% assign facet_values = collection | map: facet | compact | uniq | sort_natural %}
       {% endif %}
         
-        <fieldset id="facet-set" class="card ml-2 facet-card">
-          <div class="facet-header">
+        <fieldset id="{{ facet | slugify }}-set" class="card m-1 facet-card">
+          <div class="facet-header card-header">
             <a
               class="facet-bn"
               data-toggle="collapse"
