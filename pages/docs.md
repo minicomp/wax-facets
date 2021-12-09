@@ -8,7 +8,7 @@ permalink: /learning/
 
 Facets is a [Wax](https://minicomp.github.io/wax/) theme. Wax in turn relies on Jekyll. To use Facets you need to be familiar with both Jekyll and Wax. To learn more about setting up and using Wax visit [the Wax wiki](https://minicomp.github.io/wiki/wax/). You can learn more about using Jekyll on the [Jekyll docs](https://jekyllrb.com/docs/), or in [this great tutorial](https://programminghistorian.org/en/lessons/building-static-sites-with-jekyll-github-pages) by Amanda Visconti at Programming Historian.
 
-## ... define facets
+## ... create a faceted gallery
 
 As other Wax sites, _Facets_ depends on the metadata you create. Let's assume you are using a CSV to record data for your collection. In order for _Facets_ to work, that CSV must have designated columns for each large category you want to "facet" by. These become the _facet headers_ at the top of the drop-down menus above the gallery. Each of these columns then accepts a small range of sub-categories, or _facet values_. These become the check boxes.
 
@@ -17,7 +17,7 @@ As other Wax sites, _Facets_ depends on the metadata you create. Let's assume yo
 <br>
 <br>
 
-The first step before using a facet gallery on any one of your pages is to add `gallery: True` to your YAML header. See the example at the top of our [collection.md](https://github.com/minicomp/wax-facets/blob/main/pages/collection.md) file.
+The first step before creating a facet gallery on any one of your pages is to add `gallery: True` to your YAML header. See the example at the top of our [collection.md](https://github.com/minicomp/wax-facets/blob/main/pages/collection.md) file.
 
 Next, we tell _Facets_ what collection gallery to insert and what columns to facet by with a Jekyll `include` command that brings in the `facet_gallery` at the desired place on the page. This `include` snippet requires a `collection:` variable and a `facet_by:` variable. You can also pass an optional variable to control the number of columns displayed on large screens: `num_column:`. This theme already comes with the following example in the [Browse](/collection/) page. In order to use it, just replace the sample values with your own when editing the page:
 
