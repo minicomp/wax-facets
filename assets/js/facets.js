@@ -1,3 +1,22 @@
+// This JavaScript controls the expanding and contracting facet headers.
+         
+
+$(document).ready(function () {          
+    $(".facet-bn").click(function (event) {
+        $(this)
+            .parent()
+            .parent()
+            .toggleClass("active");                  
+        // this selector might return multiple elements
+        $(this)
+            .children("legend")
+            .children(".facets-chevron")
+            .toggleClass("facets-chevron-bottom facets-chevron-top");
+            console.log("Click")
+    });
+});
+
+
 /*
 
 This JavaScript code specifies the operation of the checkbox
