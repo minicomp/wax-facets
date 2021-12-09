@@ -21,7 +21,7 @@ The gallery below includes the subset of all portraits in the larger qatar colle
 
 The gallery below includes the subset of all manuscripts in the larger qatar collection. Just as you with the larger collection, you can facet the collection by other criteria.
 
-{% include gallery.html collection='qatar' field='object_type' value='manuscript' facet_by='location*|current_location' num_column=4 %}
+{% include gallery.html collection='qatar' field='object_type' value='manuscript' facet_by='location|current_location' num_column=4 %}
 
 
 

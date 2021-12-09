@@ -1,3 +1,8 @@
+{% comment %}- ASSIGN SEPARATOR -{% endcomment%}
+{% assign separator = "|" %}
+
+{% comment %}- SET NUMBER OF COLUMNS -{% endcomment%}
+
 {% if include.num_column %} 
   {% assign min_column_width = 12 | divided_by: include.num_column %} 
 {% else %} 
@@ -23,7 +28,6 @@
     {% for facet in facet_list %}
       {% comment %}- MULTI-VALUE FACETS -{% endcomment%}
       {% if facet contains "*" %}
-        {% assign separator = "|" %}
         {% assign facet_name = facet | remove: "*" %}
 
         {% assign original_options = collection | map: facet_name | compact | uniq | sort_natural %}
@@ -129,7 +133,8 @@
                   ><h3 class="card-title">{{ item.label }}</h3></a
                 >
 
-                <!-- Replace the constructed text below with your own card message -->
+                <!-- CONSTRUCTED CARD TEXT
+        Replace the constructed text below with your own card message -->
 
                 <p class="card-text small">
                   A {{item.object_type}} from {{item.location}} ({{item._date}}).
