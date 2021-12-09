@@ -253,16 +253,12 @@ footer {
   height: 1.2em;
 }
 
-// Wax Gallery
+// WAX GALLERY
 
 .wax-gallery-container {
   padding-bottom: 2rem;
 }
 
-/*
-    FACET GALLERY
-    (Copy the CSS below if you're importing into your own theme)
-*/
 
 .image-viewer {
   display: flex;
@@ -287,6 +283,15 @@ footer {
 
 p.card-text {
   color: #444444;
+}
+
+/*
+    FACETS BUTTONS
+    (Copy the CSS below if you're importing into your own theme)
+*/
+
+input[type="checkbox"] {
+  margin-right: 4px;
 }
 
 .facet-card {

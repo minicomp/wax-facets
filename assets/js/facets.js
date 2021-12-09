@@ -12,7 +12,6 @@ $(document).ready(function () {
             .children("legend")
             .children(".facets-chevron")
             .toggleClass("facets-chevron-bottom facets-chevron-top");
-            console.log("Click")
     });
 });
 
