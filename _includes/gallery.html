@@ -98,19 +98,20 @@
           {% if include.facet_by %}
             {% assign facet_list = include.facet_by | split: "|" %}
             {% for fieldSet in facet_list %}
-              {% assign itemFieldValue = item[fieldSet] | replace: separator, " " | remove: "*" %}
-              {% if itemFieldValue.first %}
-                {% assign fieldSetArray = '' | split: ' ' %}
-                {% for val in itemFieldValue %}
-                  {% assign slugVal = val | slugify | split: ' ' %}
-                  {% assign fieldSetArray = fieldSetArray | concat: slugVal %}
-                {% endfor %}
-              {% else %}
-                {% assign fieldSetArray = itemFieldValue | slugify | split: ' ' %}
-              {% endif %}
-              {% assign newClasses = newClasses | concat: fieldSetArray %}
+              {% assign itemFieldValue = item[fieldSet] %} 
+              {% if itemFieldValue.first %} 
+                {% assign fieldSetArray = '' | split: ' ' %} 
+                {% for val in itemFieldValue %} 
+                  {% assign slugVal = val | slugify | split: ' ' %} 
+                  {% assign fieldSetArray = fieldSetArray | concat: slugVal %} 
+                {% endfor %} 
+              {% else %} 
+                {% assign fieldSetArray = itemFieldValue | slugify | split: ' ' %} 
+              {% endif %} 
+              {% assign newClasses = newClasses | concat: fieldSetArray %} 
             {% endfor %}
           {% endif %}
+          
           <div class="gallery-item-facets {{  newClasses | join: ' ' }}  col-xl-{{min_column_width}} p-1">
             <div class="card thumbnail-card">
               <img
@@ -122,8 +123,7 @@
                 <a href="{{ item.url | absolute_url }}"
                   ><h3 class="card-title">{{ item.label }}</h3></a
                 >
-                <!-- remove default text below or replace with a description from
-                  the item record (e.g., {{item.description}}) -->
+
                 <p class="card-text small">
                   This is a {{item.object_type}} from {{item.location}} dating to
                   {{item._date}}.
