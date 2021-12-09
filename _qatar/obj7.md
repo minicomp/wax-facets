@@ -3,7 +3,7 @@ pid: obj7
 artist: Unknown
 location: Iran
 label: Page from the Shahnama
-_date: 1525 - 1535
+_date: 1525–1535
 tags: people|architecture
 object_type: manuscript
 current_location: The Museum of Islamic Art, Qatar

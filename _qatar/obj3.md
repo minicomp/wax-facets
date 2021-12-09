@@ -3,7 +3,7 @@ pid: obj3
 artist: Unknown
 location: Egypt
 label: Map of the World
-_date: 15th century
+_date: the 15th century
 tags: text
 object_type: map
 current_location: The Museum of Islamic Art, Qatar

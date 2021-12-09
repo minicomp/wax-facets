@@ -3,7 +3,7 @@ pid: obj5
 artist: Unknown
 location: Iran
 label: Panel from Iran
-_date: 1600 - 1625
+_date: 1600–1625
 tags: people|flora
 object_type: panel
 current_location: The Museum of Islamic Art, Qatar

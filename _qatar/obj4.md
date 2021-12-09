@@ -3,7 +3,7 @@ pid: obj4
 artist: Unknown
 location: Iran
 label: Faridun crosses the River Dijla, fol. 33v
-_date: 1525 - 1535
+_date: 1525–1535
 tags: text|people
 object_type: manuscript
 current_location: The Museum of Islamic Art, Qatar

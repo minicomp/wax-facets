@@ -3,7 +3,7 @@ pid: obj8
 artist: Unknown
 location: Iran
 label: Silk Tapestry Depicting the story of Leila and Majnun
-_date: 1550 - 1650
+_date: 1550–1650
 tags: people|flora
 object_type: panel
 current_location: The Museum of Islamic Art, Qatar
