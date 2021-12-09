@@ -95,23 +95,26 @@
       <div class="wax-gallery" id="wax-gallery-{{ include.value | slugify }}">
         <div class="row">            
         {% for item in collection %}
-          {% assign newClasses = '' | split: ' ' %}
           {% if include.facet_by %}
-            {% assign facet_list = include.facet_by | split: "|" %}
-            {% for fieldSet in facet_list %}
-              {% assign fieldSetValue = fieldSet | remove: "*" %}
-              {% assign itemFieldValue = item[fieldSetValue] %}
-              {% if itemFieldValue.first %} 
-                {% assign fieldSetArray = '' | split: ' ' %} 
-                {% for val in itemFieldValue %} 
-                  {% assign slugVal = val | slugify | split: ' ' %} 
-                  {% assign fieldSetArray = fieldSetArray | concat: slugVal %} 
-                {% endfor %} 
-              {% else %} 
-                {% assign fieldSetArray = itemFieldValue | slugify | split: ' ' %} 
-              {% endif %} 
-              {% assign newClasses = newClasses | concat: fieldSetArray %} 
+            {% assign newClasses = '' | split: ' ' %}
+            {% assign facet_list = include.facet_by | remove: "*" | split: "|" %}
+            {% for facet in facet_list %}
+              {% assign temp_facet_values = "" %}
+              {% assign itemFieldValue = item[facet] %}
+                {% if itemFieldValue contains separator %}
+                  {% assign split_values = {{itemFieldValue}} | split: separator %}
+                  {% for split_value in split_values %}
+                    {% assign split_value_slug = split_value | slugify %}
+                    {% capture temp_facet_values %}{{ temp_facet_values | append: split_value_slug }}{% unless split_value == split_values.last %}|{% endunless %}{% endcapture %}
+                  {% endfor %}
+                {% else %}
+                  {% assign slug_value = itemFieldValue | slugify %}
+                  {% capture temp_facet_values %}{{ temp_facet_values | append: slug_value }}{% endcapture %}
+                {% endif %}
+                {% assign facetArray = temp_facet_values | split: separator %} 
+                {% assign newClasses = newClasses | concat: facetArray %}           
             {% endfor %}
+            
           {% endif %}
 
           <div class="gallery-item-facets {{  newClasses | join: ' ' }}  col-xl-{{min_column_width}} p-1">

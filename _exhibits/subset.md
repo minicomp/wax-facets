@@ -15,4 +15,4 @@ Odio ut enim blandit volutpat. Odio euismod lacinia at quis risus sed vulputate 
 
 Facilisi etiam dignissim diam quis enim lobortis scelerisque fermentum. Lobortis feugiat vivamus at augue eget arcu. In hac habitasse platea dictumst vestibulum rhoncus est pellentesque.
 
-{% include gallery.html collection='qatar' field='object_type' value='manuscript' facet_by='location*' num_column=4 %}
+{% include gallery.html collection='qatar' field='object_type' value='manuscript' facet_by='location*|current_location' num_column=4 %}
