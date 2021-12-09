@@ -41,7 +41,7 @@ _Facets_ also allows you to create galleries for subsets of your collections. A 
 
 `{% raw %}{% include gallery.html collection='qatar' field='object_type' value='portrait' num_column=4 %}{% endraw %}`
 
-The gallery that results from this instruction only shows portraits. This `include` command is slightly different than the one for faceted browsing. They both share a `collection:` and a `num_column:` variable. To use this `include`, though, you need to declare a `field:` variable. This is equivalent to a column from your data. Then you pick the `value:` that you want to limit results to. 
+The gallery that results from this instruction only shows portraits. This `include` command is slightly different than the one for browsing the whole collection. They both share a `collection:` and a `num_column:` variable. To use this `include`, though, you need to declare a `field:` variable. This is equivalent to a column from your data. Then you pick the `value:` that you want to limit results to. 
 
 The `facet_by:` is optional. If we don't want to facet further, as in this case, we simply leave it out. In the second example on the same page, we create a subset based on one category and `facet_by` two others, `location` and `current_location`.
 
