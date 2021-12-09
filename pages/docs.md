@@ -71,6 +71,6 @@ In theory, Facets should be able to be transferred to another Wax theme followin
 
 N.B. Make sure to call the right file in your `include` command. Notice we're calling it `gallery.html` and not `collection_gallery.html` as we would normally. Ex:\\
 \\
-`{% raw %}{% include gallery.html collection='qatar' facet_by='object_type' only='portrait' num_column=4 %}{% endraw %}`
+`{% raw %}{% include gallery.html collection='qatar' facet_by='object_type' num_column=4 %}{% endraw %}`
 
 After these steps you might still want to tweak the final results. For example, if you're transferring to the original Wax theme, you might want to tweak the font size and the bottom margin on the buttons. We'll leave the final pixel-pushing to you.
