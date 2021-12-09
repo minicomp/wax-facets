@@ -69,7 +69,7 @@ In theory, Facets should be able to be transferred to another Wax theme followin
    The other alternative is to create a layout just for galleries and place the script there, like we do in the Facets theme.
 4. Copy the "FACET  BUTTONS" section of our "[\_facets.scss](https://github.com/minicomp/wax-facets/blob/main/_sass/_facets.scss)" file at the end of your SASS or CSS file. We put this section at the end of our file for your convenience. If you are working with the original Wax theme, this snippet would go at the end of the "[/\_sass/\_wax.scss](https://github.com/minicomp/wax/blob/main/_sass/_wax.scss)" file.
 
-N.B. Make sure to call the right file in your `include` command. Notice we're calling `gallery.html` and not `collection_gallery.html` as we would normally. Ex:\\
+N.B. Make sure to call the right file in your `include` command. Notice we're calling it `gallery.html` and not `collection_gallery.html` as we would normally. Ex:\\
 \\
 `{% raw %}{% include gallery.html collection='qatar' facet_by='object_type' only='portrait' num_column=4 %}{% endraw %}`
 
