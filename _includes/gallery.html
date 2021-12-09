@@ -33,8 +33,8 @@
         {% for option in original_options %}
           {% if option contains separator %}
             {% assign split_values = {{option}} | split: separator %}
-            {% for sv in split_values %}
-              {% capture temp_facet_values %}{{ temp_facet_values | append: sv}}|{% endcapture %}
+            {% for split_value in split_values %}
+              {% capture temp_facet_values %}{{ temp_facet_values | append: split_value }}|{% endcapture %}
             {% endfor %}
           {% else %}
             {% capture temp_facet_values %}{{ temp_facet_values | append: option}}|{% endcapture %}
@@ -97,21 +97,21 @@
         {% for item in collection %}
           {% if include.facet_by %}
             {% assign newClasses = '' | split: ' ' %}
-            {% assign facet_list = include.facet_by | remove: "*" | split: "|" %}
+            {% assign facet_list = include.facet_by | remove: "*" | split: separator %}
             {% for facet in facet_list %}
               {% assign temp_facet_values = "" %}
-              {% assign itemFieldValue = item[facet] %}
-                {% if itemFieldValue contains separator %}
-                  {% assign split_values = {{itemFieldValue}} | split: separator %}
+              {% assign item_value = item[facet] | join " " %}
+                {% if item_value contains separator %}
+                  {% assign split_values = {{item_value}} | split: separator %}                 
                   {% for split_value in split_values %}
-                    {% assign split_value_slug = split_value | slugify %}
-                    {% capture temp_facet_values %}{{ temp_facet_values | append: split_value_slug }}{% unless split_value == split_values.last %}|{% endunless %}{% endcapture %}
+                    {% assign split_slug_value = split_value | slugify %}
+                    {% capture temp_facet_values %}{{ temp_facet_values | append: split_slug_value }}{% unless split_value == split_values.last %}|{% endunless %}{% endcapture %}
                   {% endfor %}
                 {% else %}
-                  {% assign slug_value = itemFieldValue | slugify %}
+                  {% assign slug_value = item_value | join " " | slugify %}
                   {% capture temp_facet_values %}{{ temp_facet_values | append: slug_value }}{% endcapture %}
                 {% endif %}
-                {% assign facetArray = temp_facet_values | split: " " %} 
+                {% assign facetArray = temp_facet_values | replace: separator, " " | split: " " %} 
                 {% assign newClasses = newClasses | concat: facetArray %}           
             {% endfor %}
             
