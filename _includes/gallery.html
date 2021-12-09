@@ -23,12 +23,13 @@
     {% for facet in facet_list %}
       {% comment %}- MULTI-VALUE FACETS -{% endcomment%}
       {% if facet contains "*" %}
-        {% assign facet = facet | remove: "*" %}
-        {% assign original_options = collection | map: field_name | compact | uniq | sort_natural %}
-        
+        {% assign separator = "|" %}
+        {% assign facet_name = facet | remove: "*" %}
+
+        {% assign original_options = collection | map: facet_name | compact | uniq | sort_natural %}
+
         {% comment%}Create Temporary Array of Individuated Facet Values{% endcomment %}
         {% assign temp_facet_values = "" %}
-        {% assign separator = "|" %}
         {% for option in original_options %}
           {% if option contains separator %}
             {% assign split_values = {{option}} | split: separator %}
@@ -42,27 +43,27 @@
         {% assign facet_values = temp_facet_values | split: "|" | uniq | sort_natural %}
       {% else %}
         {% assign facet_values = collection | map: facet | compact | uniq | sort_natural %}
+        {% assign facet_name = facet %}
       {% endif %}
         
-        <fieldset id="{{ facet | slugify }}-set" class="card m-1 facet-card">
+        <fieldset id="{{ facet_name | slugify }}-set" class="card m-1 facet-card">
           <div class="facet-header card-header">
             <a
               class="facet-bn"
               data-toggle="collapse"
-              href="#{{ facet | slugify }}-collapse"
+              href="#{{ facet_name | slugify }}-collapse"
               role="button"
               aria-expanded="false"
-              aria-controls="{{ facet | slugify }}-collapse"
+              aria-controls="{{ facet_name | slugify }}-collapse"
             >
-              <legend>{{ facet | replace: "_", " "}}
-                <span
+              <legend>{{ facet_name | replace: "_", " " }}<span
                   aria-hidden="true"
                   class="facets-chevron facets-chevron-bottom float-right ml-2"
                 ></span>
               </legend>
             </a>
           </div>
-          <div class="collapse" id="{{ facet | slugify }}-collapse">
+          <div class="collapse" id="{{ facet_name | slugify }}-collapse">
             {% comment %}Create Card with facet values{% endcomment %}
             <div class="card-body">
               {% for value in facet_values %}
@@ -98,7 +99,8 @@
           {% if include.facet_by %}
             {% assign facet_list = include.facet_by | split: "|" %}
             {% for fieldSet in facet_list %}
-              {% assign itemFieldValue = item[fieldSet] %} 
+              {% assign fieldSetValue = fieldSet | remove: "*" %}
+              {% assign itemFieldValue = item[fieldSetValue] %}
               {% if itemFieldValue.first %} 
                 {% assign fieldSetArray = '' | split: ' ' %} 
                 {% for val in itemFieldValue %} 
@@ -111,7 +113,7 @@
               {% assign newClasses = newClasses | concat: fieldSetArray %} 
             {% endfor %}
           {% endif %}
-          
+
           <div class="gallery-item-facets {{  newClasses | join: ' ' }}  col-xl-{{min_column_width}} p-1">
             <div class="card thumbnail-card">
               <img
