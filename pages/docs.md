@@ -25,11 +25,11 @@ Next, we tell _Facets_ what collection gallery to insert and what columns to fac
 
 Notice that instead of the original `collection_gallery.html` we use `gallery.html`.
 
-For the `facet_by:` variable, specify one or more field names in a pipe-separated list. For the `num_column` variable, specify a number that is a divisor of 12 (i.e, 1, 2, 3, 4, or 6). This is the number of columns you want to have. The default is 2 columns.
+For the `facet_by:` variable, specify one or more field names in a pipe-separated list. Use an asterisk (`*`) after the field name if its entries contain multiple values (See below for more details).  For the `num_column:` variable, specify a number that is a divisor of 12 (i.e, 1, 2, 3, 4, or 6). This is the number of columns you want to have. If you don't include the `num_column:` variable, the default is 6 columns.
 
 ## ... use facets with multiple-value entries
 
-Say for example you're trying to use tags in your project, or describe cultural objects that may or may not be in multiple languages. In our qatar data we have a tags column with entries like `text,text|people,flora|people|fauna`. Some of these entries have only one value, some have several. Facets allows you to isolate all the unique individual values and create a facet selection form based on them.  In order to command facets to treat a particular facet as multi-value, just add an asterisk (`*`) to the facet in your `facet_by` variable, as in the example from the Browse page:
+Say for example you're trying to use tags in your project, or describe cultural objects that may or may not be in multiple languages. In our qatar data we have a tags column with entries like `text,text|people,flora|people|fauna`. Some of these entries have only one value, some have several. Facets allows you to isolate all the unique individual values and create a facet selection form based on them.  In order to command facets to treat a particular facet as multi-value, just add an asterisk (`*`) to the facet in your `facet_by:` variable, as in the example from the Browse page:
 
 `{% raw %}{% include gallery.html collection='qatar' facet_by='object_type|location|tags*' num_column=4 %}{% endraw %}`
 
@@ -43,7 +43,7 @@ _Facets_ also allows you to create galleries for subsets of your collections. A 
 
 The gallery that results from this instruction only shows portraits. This `include` command is slightly different than the one for faceted browsing. They both share a `collection:` and a `num_column:` variable. To use this `include`, though, you need to declare a `field:` variable. This is equivalent to a column from your data. Then you pick the `value:` that you want to limit results to. 
 
-The `facet_by` is optional. If we don't want to facet further, as in this case, we simply leave it out. In the second example on the same page, we create a subset based on one category and `facet_by` two others, `location` and `current_location`.
+The `facet_by:` is optional. If we don't want to facet further, as in this case, we simply leave it out. In the second example on the same page, we create a subset based on one category and `facet_by` two others, `location` and `current_location`.
 
 `{% raw %}{% include gallery.html collection='qatar' field='object_type' value='manuscript' facet_by='location|current_location' num_column=4 %}{% endraw %}`
 
@@ -54,7 +54,7 @@ _Facets_ is a prototype, just as _Wax_ itself is a prototype, a tool to think wi
 
 The CSS that determines the look of the site is done using a combination of SASS and the bootstrap framework. To change some common variables, like colors or fonts, you can edit the `/assets/css/style.scss` file. You can always override our own choices from this file as well. You can also add your own CSS files to the `_sass` folder, and simply import them into the main sass file above.
 
-To change the description section of our cards, for ex. "A manuscript from Turkey (1801)," go to the "Constructed Card Text" section of the `gallery.html` file. 
+To change the description section of our cards, for ex. "A manuscript from Turkey (1801)," go to the "CONSTRUCTED CARD TEXT" section of the `gallery.html` file. 
 
 ## ... use Facets with another Wax theme
 
@@ -67,10 +67,10 @@ In theory, Facets should be able to be transferred to another Wax theme followin
    `<script type='text/javascript' async defer src='{% raw %}{{ "/assets/facets.js" | absolute_url }}{% endraw %}'></script>`\\
    \\
    The other alternative is to create a layout just for galleries and place the script there, like we do in the Facets theme.
-4. Copy the "/\* FACET GALLERY \*/" section of our "[\_facets.scss](https://github.com/minicomp/wax-facets/blob/main/_sass/_facets.scss)" file at the end of your SASS or CSS file. We put this section at the end of our file for your convenience. If you are working with the original Wax theme, this snippet would go at the end of the "[/\_sass/\_wax.scss](https://github.com/minicomp/wax/blob/main/_sass/_wax.scss)" file.
+4. Copy the "FACET  BUTTONS" section of our "[\_facets.scss](https://github.com/minicomp/wax-facets/blob/main/_sass/_facets.scss)" file at the end of your SASS or CSS file. We put this section at the end of our file for your convenience. If you are working with the original Wax theme, this snippet would go at the end of the "[/\_sass/\_wax.scss](https://github.com/minicomp/wax/blob/main/_sass/_wax.scss)" file.
 
 N.B. Make sure to call the right file in your `include` command. Notice we're calling `gallery.html` and not `collection_gallery.html` as we would normally. Ex:\\
 \\
 `{% raw %}{% include gallery.html collection='qatar' facet_by='object_type' only='portrait' num_column=4 %}{% endraw %}`
 
-After these steps you might still want to tweak the final results. For example, if you're transferring to the original Wax theme, you might want to tweak the font size and the line height on the card. We'll leave the final pixel-pushing to you.
+After these steps you might still want to tweak the final results. For example, if you're transferring to the original Wax theme, you might want to tweak the font size and the bottom margin on the buttons. We'll leave the final pixel-pushing to you.

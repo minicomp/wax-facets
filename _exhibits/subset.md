@@ -19,7 +19,7 @@ The gallery below includes the subset of all portraits in the larger qatar colle
 
 ## Subset Collection with Facets
 
-The gallery below includes the subset of all manuscripts in the larger qatar collection. Just as you with the larger collection, you can facet the collection by other criteria.
+The gallery below includes the subset of all manuscripts in the larger qatar collection. Just as you with the larger collection, you can facet the collection by other criteria. The gallery will dynamically change to reflect your selections.
 
 {% include gallery.html collection='qatar' field='object_type' value='manuscript' facet_by='location|current_location' num_column=4 %}
 
