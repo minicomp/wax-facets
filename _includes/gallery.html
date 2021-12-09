@@ -111,7 +111,7 @@
                   {% assign slug_value = itemFieldValue | slugify %}
                   {% capture temp_facet_values %}{{ temp_facet_values | append: slug_value }}{% endcapture %}
                 {% endif %}
-                {% assign facetArray = temp_facet_values | split: separator %} 
+                {% assign facetArray = temp_facet_values | split: " " %} 
                 {% assign newClasses = newClasses | concat: facetArray %}           
             {% endfor %}
             

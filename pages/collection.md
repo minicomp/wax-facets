@@ -9,4 +9,4 @@ This site's sample collection comprises a set of objects, each of which is repre
 
 In the Tags category you can see an example of multiple values being separated from each other. Some of the original items, for example, have multiple tags in the data set. Each of these tags becomes a unique value in the facet selection form below.
 
-{% include facet_gallery.html facet_by='object_type|location' collection='qatar' num_column=4 %}
+{% include gallery.html facet_by='object_type|location' collection='qatar' num_column=4 %}
