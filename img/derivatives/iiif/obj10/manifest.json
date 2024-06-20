@@ -18,8 +18,8 @@ layout: none
           "@type": "sc:Canvas",
           "@id": "{{ '/' | absolute_url }}img/derivatives/iiif/canvas/obj10.json",
           "label": "front",
-          "width": 2501,
-          "height": 4331,
+          "width": 2400,
+          "height": 4156,
           "thumbnail": "{{ '/' | absolute_url }}img/derivatives/iiif/images/obj10/full/250,/0/default.jpg",
           "images": [
             {
@@ -35,8 +35,8 @@ layout: none
                   "@id": "{{ '/' | absolute_url }}img/derivatives/iiif/images/obj10",
                   "profile": "http://iiif.io/api/image/2/level0.json"
                 },
-                "width": 2501,
-                "height": 4331
+                "width": 2400,
+                "height": 4156
               },
               "on": "{{ '/' | absolute_url }}img/derivatives/iiif/canvas/obj10.json"
             }

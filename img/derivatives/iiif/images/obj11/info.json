@@ -5,12 +5,12 @@ layout: none
   "@context": "http://iiif.io/api/image/2/context.json",
   "@id": "{{ '/' | absolute_url }}img/derivatives/iiif/images/obj11",
   "protocol": "http://iiif.io/api/image",
-  "width": 2708,
-  "height": 4671,
+  "width": 2400,
+  "height": 4140,
   "sizes": [
     {
-      "width": 2708,
-      "height": 4671
+      "width": 2400,
+      "height": 4140
     },
     {
       "width": 250,
@@ -18,7 +18,7 @@ layout: none
     },
     {
       "width": 1140,
-      "height": 1966
+      "height": 1967
     }
   ],
   "profile": [
